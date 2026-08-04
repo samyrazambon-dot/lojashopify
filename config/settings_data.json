@@ -1,23 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "logo_width": 120,
+    "logo_width": 110,
     "color_background": "#ffffff",
-    "color_text": "#000000",
-    "color_background_contrast": "#f2f3f8",
-    "color_text_contrast": "#000000",
-    "color_accent": "#ff0033",
+    "color_text": "#1A0E1F",
+    "color_background_contrast": "#2B0A2E",
+    "color_text_contrast": "#ffffff",
+    "color_accent": "#FF2D95",
     "color_accent_text": "#ffffff",
     "color_sale": "#1cb744",
-    "color_border": "#c2c2c2",
+    "color_border": "#e8d3e0",
     "type_header_font": "assistant_n7",
-    "heading_scale": 100,
+    "heading_scale": 105,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
     "page_width": 1200,
-    "spacing_sections": 40,
-    "buttons_radius": 4,
-    "inputs_radius": 4,
-    "media_radius": 8,
+    "spacing_sections": 48,
+    "buttons_radius": 40,
+    "inputs_radius": 40,
+    "media_radius": 24,
     "card_image_ratio": "portrait",
     "card_show_vendor": false,
     "card_show_second_image": true,
@@ -47,6 +56,31 @@
       "buttons_radius": 4,
       "inputs_radius": 4,
       "media_radius": 8,
+      "card_image_ratio": "portrait",
+      "card_show_vendor": false,
+      "card_show_second_image": true,
+      "cart_type": "drawer",
+      "cart_show_note": true
+    },
+    "Safa": {
+      "logo_width": 110,
+      "color_background": "#ffffff",
+      "color_text": "#1A0E1F",
+      "color_background_contrast": "#2B0A2E",
+      "color_text_contrast": "#ffffff",
+      "color_accent": "#FF2D95",
+      "color_accent_text": "#ffffff",
+      "color_sale": "#1cb744",
+      "color_border": "#e8d3e0",
+      "type_header_font": "assistant_n7",
+      "heading_scale": 105,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 48,
+      "buttons_radius": 40,
+      "inputs_radius": 40,
+      "media_radius": 24,
       "card_image_ratio": "portrait",
       "card_show_vendor": false,
       "card_show_second_image": true,
