@@ -22,22 +22,32 @@
         },
         "menu-loja": {
           "type": "menu",
-          "settings": { "heading": "Loja", "menu": "footer-loja" }
+          "settings": {
+            "heading": "Loja",
+            "menu": "footer-loja"
+          }
         },
         "menu-safa": {
           "type": "menu",
-          "settings": { "heading": "Safa", "menu": "footer-safa" }
+          "settings": {
+            "heading": "Safa",
+            "menu": "footer-safa"
+          }
         },
         "menu-ajuda": {
           "type": "menu",
-          "settings": { "heading": "Ajuda", "menu": "footer-ajuda" }
-        },
-        "newsletter": {
-          "type": "newsletter",
-          "settings": { "heading": "Clube do Brilho — 10% off na primeira compra" }
+          "settings": {
+            "heading": "Ajuda",
+            "menu": "footer-ajuda"
+          }
         }
       },
-      "block_order": ["brand", "menu-loja", "menu-safa", "menu-ajuda", "newsletter"],
+      "block_order": [
+        "brand",
+        "menu-loja",
+        "menu-safa",
+        "menu-ajuda"
+      ],
       "settings": {}
     }
   },
