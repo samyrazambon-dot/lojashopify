@@ -10,66 +10,109 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Espalhe o que te ilumina." } },
-        "text": { "type": "text", "settings": { "text": "<p>Cosméticos e dermocosméticos que revelam o brilho único que há em cada pessoa. Beleza, cuidado pessoal e bem-estar todo dia.</p>" } },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Comprar bestsellers",
-            "button_link": "/collections/all",
-            "button_label_2": "Conhecer o ritual",
-            "button_link_2": "/pages/ritual"
-          }
-        }
-      },
-      "block_order": ["heading", "text", "button"],
+      "type": "safa-hero",
       "settings": {
-        "image": "shopify://shop_images/9e1bbf8cb16de1e619a33dec55e1fbf6.jpg",
-        "height": "large",
-        "text_alignment": "left"
+        "badge_text": "Novo · Sérum Lumin Up",
+        "heading_line1": "Espalhe",
+        "heading_line2": "o que te",
+        "heading_line3": "ilumina.",
+        "text": "<p>Cosméticos e dermocosméticos que revelam o brilho único que há em cada pessoa. Beleza, cuidado pessoal e bem-estar todo dia.</p>",
+        "button_label": "Comprar bestsellers",
+        "button_link": "/collections/all",
+        "button_label_2": "Conhecer o ritual",
+        "button_link_2": "/pages/ritual",
+        "stat_text": "+15 mil clientes iluminadas",
+        "rating_text": "4.9 nas avaliações",
+        "corner_badge": "Vegano",
+        "card_label": "Rotina de 3 passos",
+        "card_title": "Resultado em 14 dias"
       }
     },
+    "marquee": {
+      "type": "safa-marquee",
+      "blocks": {
+        "i1": { "type": "item", "settings": { "text": "Safa tem brilho próprio" } },
+        "i2": { "type": "item", "settings": { "text": "Beleza, cuidado & bem-estar todo dia" } },
+        "i3": { "type": "item", "settings": { "text": "Espalhe o que te ilumina" } },
+        "i4": { "type": "item", "settings": { "text": "Seja Safa" } },
+        "i5": { "type": "item", "settings": { "text": "Quem é Safa tem brilho próprio" } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4", "i5"],
+      "settings": {}
+    },
     "produtos": {
-      "type": "featured-collection",
+      "type": "safa-products",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": { "product": "safa-serum-uniformizador-lumin-up-30ml", "description": "Uniformizador — axilas, virilha & joelhos · 30ml", "badge_label": "Bestseller", "badge_color": "pink" }
+        },
+        "p2": {
+          "type": "product",
+          "settings": { "product": "safa-tonico-facial-120ml", "description": "Hidratante com D-Pantenol · 120ml", "badge_label": "Novo", "badge_color": "green" }
+        },
+        "p3": {
+          "type": "product",
+          "settings": { "product": "safa-serum-facial-5-em-1-multi-glow-30ml", "description": "Sérum facial iluminador · 30ml", "badge_label": "Queridinho", "badge_color": "orange" }
+        },
+        "p4": {
+          "type": "product",
+          "settings": { "product": "safa-popo-glow-creme-de-massagem-termogenico-250g", "description": "Creme de massagem termogênico · 250g", "badge_label": "Viral", "badge_color": "purple" }
+        },
+        "p5": {
+          "type": "product",
+          "settings": { "product": "safa-serum-capilar-densy-hair-30ml", "description": "Sérum capilar fortalecedor · 30ml", "badge_label": "", "badge_color": "pink" }
+        }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
       "settings": {
-        "heading": "Os queridinhos da comunidade",
-        "collection": "frontpage",
-        "products_to_show": 5,
-        "columns_desktop": 5,
-        "show_view_all": true
+        "eyebrow": "A coleção",
+        "heading_line1": "Os queridinhos",
+        "heading_line2": "da comunidade.",
+        "view_all_label": "Ver tudo",
+        "view_all_link": "/collections/all"
       }
     },
     "ritual": {
-      "type": "rich-text",
+      "type": "safa-ritual",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Três passos. Um brilho." } },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Uma rotina simples pra celebrar cada centímetro do seu corpo — do rosto ao popô.</p><p><strong>01 Limpe</strong> — Use o Tônico Facial com D-Pantenol para preparar a pele: hidrata e refresca sem ressecar.</p><p><strong>02 Trate</strong> — Aplique o Sérum Lumin Up nas áreas que pedem uniformização. Massageie até absorver.</p><p><strong>03 Ilumine</strong> — Finalize com Multi Glow no rosto e Popo Glow no corpo. É brilho de dentro pra fora.</p>"
-          }
-        },
-        "button": { "type": "button", "settings": { "button_label": "Ver o ritual completo", "button_link": "/pages/ritual" } }
+        "s1": { "type": "step", "settings": { "number": "01", "title": "Limpe", "text": "Use o Tônico Facial com D-Pantenol para preparar a pele — hidrata e refresca sem ressecar.", "color": "orange" } },
+        "s2": { "type": "step", "settings": { "number": "02", "title": "Trate", "text": "Aplique o Sérum Lumin Up nas áreas que pedem uniformização. Massageie até absorver.", "color": "pink" } },
+        "s3": { "type": "step", "settings": { "number": "03", "title": "Ilumine", "text": "Finalize com Multi Glow no rosto e Popo Glow no corpo. É brilho de dentro pra fora.", "color": "purple" } }
       },
-      "block_order": ["heading", "text", "button"],
-      "settings": {}
+      "block_order": ["s1", "s2", "s3"],
+      "settings": {
+        "eyebrow": "O ritual Safa",
+        "heading_line1": "Três passos.",
+        "heading_line2": "Um brilho.",
+        "text": "<p>Uma rotina simples pra celebrar cada centímetro do seu corpo — do rosto ao popô.</p>"
+      }
     },
     "depoimentos": {
-      "type": "rich-text",
+      "type": "safa-testimonials",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Quem usa, brilha." } },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>★★★★★ \"Uso o Lumin Up há 3 semanas e a pele ficou uniforme igual eu queria. Virei fã.\" — Marina G.</p><p>★★★★★ \"O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.\" — Beatriz S.</p><p>★★★★★ \"Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.\" — Camila R.</p>"
-          }
-        }
+        "t1": { "type": "testimonial", "settings": { "quote": "Uso o Lumin Up há 3 semanas e a pele da virilha ficou uniforme igual eu queria. Virei fã.", "name": "Marina G.", "handle": "@mari.g", "color": "green" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.", "name": "Beatriz S.", "handle": "@beasan", "color": "purple" } },
+        "t3": { "type": "testimonial", "settings": { "quote": "Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.", "name": "Camila R.", "handle": "@cami.r", "color": "pink" } }
       },
-      "block_order": ["heading", "text"],
-      "settings": {}
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "eyebrow": "#usesafa",
+        "heading_line1": "Quem é Safa tem",
+        "heading_line2": "brilho próprio."
+      }
+    },
+    "newsletter": {
+      "type": "safa-newsletter",
+      "settings": {
+        "eyebrow": "Clube do brilho",
+        "heading_line1": "10% off na sua",
+        "heading_line2": "primeira compra.",
+        "text": "Entre pro Clube Safa e receba lançamentos, dicas de ritual e mimos exclusivos.",
+        "email_placeholder": "Seu melhor e-mail",
+        "button_label": "Quero brilhar"
+      }
     }
   },
-  "order": ["hero", "produtos", "ritual", "depoimentos"]
+  "order": ["hero", "marquee", "produtos", "ritual", "depoimentos", "newsletter"]
 }
