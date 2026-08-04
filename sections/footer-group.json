@@ -1,10 +1,47 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "t:section_groups.footer.name",
   "sections": {
     "footer": {
-      "type": "footer"
+      "type": "footer",
+      "blocks": {
+        "brand": {
+          "type": "brand",
+          "settings": {
+            "text": "<p>Beleza, cuidado pessoal e bem-estar que revelam o brilho único que há em cada pessoa.</p>"
+          }
+        },
+        "menu-loja": {
+          "type": "menu",
+          "settings": { "heading": "Loja", "menu": "footer-loja" }
+        },
+        "menu-safa": {
+          "type": "menu",
+          "settings": { "heading": "Safa", "menu": "footer-safa" }
+        },
+        "menu-ajuda": {
+          "type": "menu",
+          "settings": { "heading": "Ajuda", "menu": "footer-ajuda" }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": { "heading": "Clube do Brilho — 10% off na primeira compra" }
+        }
+      },
+      "block_order": ["brand", "menu-loja", "menu-safa", "menu-ajuda", "newsletter"],
+      "settings": {}
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
