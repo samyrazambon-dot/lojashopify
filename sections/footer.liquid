@@ -15,9 +15,9 @@
 
   PRINCIPAIS PARTES:
   - footer__top: loop de section.blocks (case block.type) montando
-    cada bloco — 'brand' (logo ou nome + texto), 'menu' (heading +
-    link_list), 'text' (heading + richtext) e 'newsletter' (heading
-    + snippet 'newsletter-form').
+    cada bloco — 'brand' (logo ou "Safa" fixo + texto), 'menu'
+    (heading + link_list), 'text' (heading + richtext) e
+    'newsletter' (heading + snippet 'newsletter-form').
   - footer__bottom: seletor de localização (snippet
     'localization-form'), ícones de pagamento gerados de
     shop.enabled_payment_types, redes sociais (Instagram/Facebook/
@@ -32,6 +32,9 @@
   - Links de redes sociais vêm dos settings globais do tema
     (settings.social_*_link), não do schema desta section.
   - Ícones de redes vêm do snippet 'icon'.
+  - O nome de marca no bloco 'brand' cai para "Safa" fixo (não
+    shop.name) quando não há logo, pois o nome da loja no admin
+    ainda é genérico.
 {%- endcomment -%}
 <footer class="footer" data-section-id="{{ section.id }}">
   <div class="footer__top page-width">
@@ -51,7 +54,7 @@
                   alt: shop.name | escape
               }}
             {%- else -%}
-              <p class="footer__brand-name">{{ shop.name }}</p>
+              <p class="footer__brand-name">Safa<span class="footer__brand-star">✦</span></p>
             {%- endif -%}
             {%- if block.settings.text != blank -%}
               <div class="footer__text rte">{{ block.settings.text }}</div>
@@ -126,7 +129,7 @@
         </ul>
       {%- endif -%}
       <p class="footer__copyright">
-        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.rights' | t }}
+        &copy; {{ 'now' | date: '%Y' }} Safa Cosméticos. {{ 'sections.footer.rights' | t }}
         <span class="footer__credit">
           {{ 'sections.footer.base_by_html' | t: link: 'https://lecdt.com' }}
         </span>
@@ -145,16 +148,30 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
-    padding-top: 48px;
+    padding-top: 56px;
     padding-bottom: 48px;
   }
   .footer__logo { display: block; height: auto; margin-bottom: 16px; }
-  .footer__brand-name { font-family: var(--font-heading-family); font-size: var(--f4); margin-bottom: 12px; }
-  .footer__heading { font-size: var(--f2); margin-bottom: 16px; }
+  .footer__brand-name {
+    font-family: var(--font-heading-family);
+    font-size: var(--f5);
+    font-weight: 800;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+  .footer__brand-star { font-size: 0.6em; margin-left: 2px; vertical-align: super; }
+  .footer__heading {
+    font-size: var(--f1);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
   .footer__menu { list-style: none; margin: 0; padding: 0; }
-  .footer__link { display: inline-block; padding: 6px 0; color: inherit; text-decoration: none; font-size: var(--f1); }
-  .footer__link:hover { text-decoration: underline; }
-  .footer__text { font-size: var(--f1); line-height: 1.6; }
+  .footer__link { display: inline-block; padding: 6px 0; color: inherit; text-decoration: none; font-size: var(--f1); opacity: 0.9; }
+  .footer__link:hover { text-decoration: underline; opacity: 1; }
+  .footer__text { font-size: var(--f1); line-height: 1.6; opacity: 0.85; }
   .footer__bottom {
     display: flex;
     align-items: center;
@@ -163,7 +180,7 @@
     gap: 16px;
     padding-top: 24px;
     padding-bottom: 24px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255,255,255,0.15);
   }
   .footer__bottom-left,
   .footer__bottom-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
@@ -171,7 +188,7 @@
   .footer__payment-icon { width: 38px; height: 24px; }
   .footer__social { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }
   .footer__social a { color: inherit; display: inline-flex; }
-  .footer__copyright { font-size: var(--f0); }
+  .footer__copyright { font-size: var(--f0); opacity: 0.75; }
   .footer__credit a { color: inherit; text-decoration: underline; }
   .footer__credit a:hover { color: var(--color-accent); }
 

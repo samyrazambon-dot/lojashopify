@@ -14,8 +14,8 @@
   todas as páginas. É uma section de grupo/header do tema.
 
   PRINCIPAIS PARTES:
-  - Logo: usa settings.logo (imagem) ou, se vazio, o nome da loja
-    (shop.name) como texto.
+  - Logo: usa settings.logo (imagem) ou, se vazio, o texto "Safa"
+    como logo (marca fixa, independente do nome da loja no admin).
   - header__nav: percorre section.settings.menu.links montando o
     menu desktop com até 3 níveis (link > child > grandchild).
   - header__actions: busca (details com painel), conta (só se
@@ -60,7 +60,7 @@
             sizes: '(max-width: 1000px) 40vw, 200px'
         }}
       {%- else -%}
-        <span class="header__logo-text">{{ shop.name }}</span>
+        <span class="header__logo-text">Safa<span class="header__logo-star">✦</span></span>
       {%- endif -%}
     </a>
 
@@ -162,11 +162,19 @@
     padding: 16px 0;
   }
   .header__logo-image { display: block; height: auto; }
-  .header__logo-text { font-family: var(--font-heading-family); font-size: var(--f4); }
+  .header__logo-text {
+    font-family: var(--font-heading-family);
+    font-size: var(--f4);
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: 0.01em;
+  }
+  .header__logo-star { color: var(--color-text); font-size: 0.6em; margin-left: 2px; vertical-align: super; }
   .header__nav { flex: 1; }
   .header__menu {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 24px;
     margin: 0;
     padding: 0;
@@ -177,6 +185,8 @@
   .header__submenu-link {
     font-family: var(--font-heading-family);
     font-size: var(--f2);
+    font-weight: 700;
+    letter-spacing: 0.03em;
     color: var(--color-text);
     text-decoration: none;
     padding: 8px 0;
