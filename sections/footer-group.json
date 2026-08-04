@@ -17,38 +17,27 @@
         "brand": {
           "type": "brand",
           "settings": {
-            "text": "<p>Beleza, cuidado pessoal e bem-estar que revelam o brilho único que há em cada pessoa.</p>"
+            "text": "<p>Beleza, cuidado pessoal e bem-estar que revelam o brilho único que há em cada pessoa.</p>",
+            "instagram_link": "#",
+            "tiktok_link": "#",
+            "youtube_link": "#"
           }
         },
         "menu-loja": {
           "type": "menu",
-          "settings": {
-            "heading": "Loja",
-            "menu": "footer-loja"
-          }
+          "settings": { "heading": "Loja", "menu": "footer-loja" }
         },
         "menu-safa": {
           "type": "menu",
-          "settings": {
-            "heading": "Safa",
-            "menu": "footer-safa"
-          }
+          "settings": { "heading": "Safa", "menu": "footer-safa" }
         },
         "menu-ajuda": {
           "type": "menu",
-          "settings": {
-            "heading": "Ajuda",
-            "menu": "footer-ajuda"
-          }
+          "settings": { "heading": "Ajuda", "menu": "footer-ajuda" }
         }
       },
-      "block_order": [
-        "brand",
-        "menu-loja",
-        "menu-safa",
-        "menu-ajuda"
-      ],
-      "settings": {}
+      "block_order": ["brand", "menu-loja", "menu-safa", "menu-ajuda"],
+      "settings": { "tagline": "Espalhe o que te ilumina" }
     }
   },
   "order": [
