@@ -1,19 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "image-banner",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Welcome to your store" } },
-        "text": { "type": "text", "settings": { "text": "<p>Add your headline and shop link here.</p>" } },
-        "button": { "type": "button", "settings": { "button_label": "Shop now" } }
+        "heading": { "type": "heading", "settings": { "heading": "Espalhe o que te ilumina." } },
+        "text": { "type": "text", "settings": { "text": "<p>Cosméticos e dermocosméticos que revelam o brilho único que há em cada pessoa. Beleza, cuidado pessoal e bem-estar todo dia.</p>" } },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Comprar bestsellers",
+            "button_link": "/collections/all",
+            "button_label_2": "Conhecer o ritual",
+            "button_link_2": "/pages/ritual"
+          }
+        }
       },
       "block_order": ["heading", "text", "button"],
-      "settings": { "height": "medium", "text_alignment": "center" }
+      "settings": {
+        "image": "shopify://shop_images/9e1bbf8cb16de1e619a33dec55e1fbf6.jpg",
+        "height": "large",
+        "text_alignment": "left"
+      }
     },
-    "featured": {
+    "produtos": {
       "type": "featured-collection",
-      "settings": { "heading": "Featured collection", "products_to_show": 4, "columns_desktop": 4 }
+      "settings": {
+        "heading": "Os queridinhos da comunidade",
+        "collection": "frontpage",
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "show_view_all": true
+      }
+    },
+    "ritual": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Três passos. Um brilho." } },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Uma rotina simples pra celebrar cada centímetro do seu corpo — do rosto ao popô.</p><p><strong>01 Limpe</strong> — Use o Tônico Facial com D-Pantenol para preparar a pele: hidrata e refresca sem ressecar.</p><p><strong>02 Trate</strong> — Aplique o Sérum Lumin Up nas áreas que pedem uniformização. Massageie até absorver.</p><p><strong>03 Ilumine</strong> — Finalize com Multi Glow no rosto e Popo Glow no corpo. É brilho de dentro pra fora.</p>"
+          }
+        },
+        "button": { "type": "button", "settings": { "button_label": "Ver o ritual completo", "button_link": "/pages/ritual" } }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {}
+    },
+    "depoimentos": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Quem usa, brilha." } },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>★★★★★ \"Uso o Lumin Up há 3 semanas e a pele ficou uniforme igual eu queria. Virei fã.\" — Marina G.</p><p>★★★★★ \"O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.\" — Beatriz S.</p><p>★★★★★ \"Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.\" — Camila R.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {}
     }
   },
-  "order": ["hero", "featured"]
+  "order": ["hero", "produtos", "ritual", "depoimentos"]
 }
