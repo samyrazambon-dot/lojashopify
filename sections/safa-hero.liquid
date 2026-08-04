@@ -1,0 +1,272 @@
+{%- comment -%}
+  SAFA — hero customizado: fundo rosa sólido, heading em 3 linhas alternando
+  roxo-escuro/branco-itálico, badges decorativos girando (SVG textPath),
+  mídia à direita (foto opcional, com fallback em bloco de cor).
+{%- endcomment -%}
+<section class="safa-hero" data-section-id="{{ section.id }}">
+  <div class="safa-hero__decor safa-hero__decor--left">
+    <svg viewBox="0 0 160 160" class="safa-hero__spin">
+      <defs>
+        <path id="circleLeft-{{ section.id }}" d="M 80,80 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" />
+      </defs>
+      <circle cx="80" cy="80" r="80" fill="#d6f24e"></circle>
+      <text font-size="11" font-weight="800" letter-spacing="3" fill="#2a0a2e">
+        <textPath href="#circleLeft-{{ section.id }}">• SEJA SAFA • SEJA SAFA • SEJA SAFA </textPath>
+      </text>
+      <text x="80" y="90" text-anchor="middle" font-size="26" fill="#2a0a2e">★</text>
+    </svg>
+  </div>
+
+  <div class="safa-hero__grid page-width">
+    <div class="safa-hero__content">
+      {%- if section.settings.badge_text != blank -%}
+        <span class="safa-hero__badge">✦ {{ section.settings.badge_text | escape }}</span>
+      {%- endif -%}
+
+      <h1 class="safa-hero__heading">
+        <span class="safa-hero__line safa-hero__line--dark">{{ section.settings.heading_line1 | escape }}</span>
+        <span class="safa-hero__line safa-hero__line--white">{{ section.settings.heading_line2 | escape }}</span>
+        <span class="safa-hero__line safa-hero__line--dark">{{ section.settings.heading_line3 | escape }}</span>
+      </h1>
+
+      {%- if section.settings.text != blank -%}
+        <div class="safa-hero__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      <div class="safa-hero__buttons">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="safa-hero__btn safa-hero__btn--solid">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.button_label_2 != blank -%}
+          <a href="{{ section.settings.button_link_2 | default: '#' }}" class="safa-hero__btn safa-hero__btn--outline">
+            {{ section.settings.button_label_2 | escape }} ↗
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.stat_text != blank -%}
+        <div class="safa-hero__proof">
+          <span class="safa-hero__avatars">
+            <span class="safa-hero__avatar safa-hero__avatar--1"></span>
+            <span class="safa-hero__avatar safa-hero__avatar--2"></span>
+            <span class="safa-hero__avatar safa-hero__avatar--3"></span>
+          </span>
+          <span class="safa-hero__proof-text">
+            <strong>{{ section.settings.stat_text | escape }}</strong>
+            <span class="safa-hero__rating">★★★★★ {{ section.settings.rating_text | escape }}</span>
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="safa-hero__media">
+      <div class="safa-hero__media-frame">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              loading: 'eager',
+              fetchpriority: 'high',
+              class: 'safa-hero__media-image',
+              widths: '480, 720, 960, 1200, 1600',
+              sizes: '(min-width: 1000px) 45vw, 100vw',
+              alt: section.settings.image.alt | default: section.settings.heading_line1 | escape
+          }}
+        {%- else -%}
+          <div class="safa-hero__media-placeholder"></div>
+        {%- endif -%}
+
+        {%- if section.settings.corner_badge != blank -%}
+          <span class="safa-hero__vegan">✦ {{ section.settings.corner_badge | escape }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.card_label != blank -%}
+          <div class="safa-hero__card">
+            <span class="safa-hero__card-label">{{ section.settings.card_label | escape }}</span>
+            <strong class="safa-hero__card-title">{{ section.settings.card_title | escape }}</strong>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="safa-hero__decor safa-hero__decor--right">
+    <svg viewBox="0 0 200 200" class="safa-hero__spin safa-hero__spin--slow">
+      <defs>
+        <path id="circleRight-{{ section.id }}" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+      </defs>
+      <circle cx="100" cy="100" r="100" fill="#ff6b35"></circle>
+      <text font-size="12" font-weight="800" letter-spacing="3" fill="#ffffff">
+        <textPath href="#circleRight-{{ section.id }}">• BRILHO PRÓPRIO • BRILHO PRÓPRIO </textPath>
+      </text>
+      <text x="100" y="112" text-anchor="middle" font-size="30" fill="#ffffff">★</text>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .safa-hero {
+    position: relative;
+    background: #ff2d95;
+    overflow: hidden;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .safa-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 48px;
+    position: relative;
+    z-index: 2;
+  }
+  .safa-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #2a0a2e;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .safa-hero__heading {
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 900;
+    line-height: 0.98;
+    margin: 0 0 24px;
+  }
+  .safa-hero__line { display: block; }
+  .safa-hero__line--dark { color: #2a0a2e; }
+  .safa-hero__line--white { color: #ffffff; font-style: italic; }
+  .safa-hero__text {
+    color: #2a0a2e;
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 460px;
+    margin-bottom: 32px;
+  }
+  .safa-hero__buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+  .safa-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .safa-hero__btn--solid { background: #2a0a2e; color: #ffffff; }
+  .safa-hero__btn--outline { background: transparent; color: #2a0a2e; border: 1.5px solid #2a0a2e; }
+  .safa-hero__proof { display: flex; align-items: center; gap: 14px; }
+  .safa-hero__avatars { display: flex; }
+  .safa-hero__avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 2px solid #ff2d95;
+    margin-left: -10px;
+  }
+  .safa-hero__avatar:first-child { margin-left: 0; }
+  .safa-hero__avatar--1 { background: #ff6b35; }
+  .safa-hero__avatar--2 { background: #d6f24e; }
+  .safa-hero__avatar--3 { background: #b9a6f5; }
+  .safa-hero__proof-text { display: flex; flex-direction: column; font-size: 13px; color: #2a0a2e; font-weight: 700; }
+  .safa-hero__rating { font-weight: 600; opacity: 0.85; }
+
+  .safa-hero__media { position: relative; }
+  .safa-hero__media-frame {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+  }
+  .safa-hero__media-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .safa-hero__media-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(150deg, #ffb6db 0%, #ff2d95 45%, #2a0a2e 100%);
+  }
+  .safa-hero__vegan {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #d6f24e;
+    color: #2a0a2e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+  .safa-hero__card {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    background: #ffffff;
+    color: #2a0a2e;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    max-width: 220px;
+  }
+  .safa-hero__card-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ff2d95;
+    margin-bottom: 4px;
+  }
+  .safa-hero__card-title { display: block; font-size: 17px; font-weight: 800; line-height: 1.2; }
+
+  .safa-hero__decor { position: absolute; z-index: 3; pointer-events: none; }
+  .safa-hero__decor--left { top: -20px; left: -60px; width: 140px; }
+  .safa-hero__decor--right { right: -60px; bottom: -60px; width: 170px; }
+  .safa-hero__spin { width: 100%; height: auto; animation: safa-spin 22s linear infinite; }
+  .safa-hero__spin--slow { animation-duration: 30s; }
+  @keyframes safa-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  @media screen and (max-width: 1000px) {
+    .safa-hero__grid { grid-template-columns: 1fr; }
+    .safa-hero__decor--left { display: none; }
+    .safa-hero__decor--right { width: 120px; right: -30px; bottom: -30px; }
+    .safa-hero__media-frame { aspect-ratio: 4 / 3; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge_text", "default": "Novo · Sérum Lumin Up", "label": "Texto do selo" },
+    { "type": "text", "id": "heading_line1", "default": "Espalhe", "label": "Título — linha 1 (roxo)" },
+    { "type": "text", "id": "heading_line2", "default": "o que te", "label": "Título — linha 2 (branco itálico)" },
+    { "type": "text", "id": "heading_line3", "default": "ilumina.", "label": "Título — linha 3 (roxo)" },
+    { "type": "richtext", "id": "text", "default": "<p>Cosméticos e dermocosméticos que revelam o brilho único que há em cada pessoa.</p>", "label": "Texto" },
+    { "type": "text", "id": "button_label", "default": "Comprar bestsellers", "label": "Botão 1 — texto" },
+    { "type": "url", "id": "button_link", "label": "Botão 1 — link" },
+    { "type": "text", "id": "button_label_2", "default": "Conhecer o ritual", "label": "Botão 2 — texto" },
+    { "type": "url", "id": "button_link_2", "label": "Botão 2 — link" },
+    { "type": "text", "id": "stat_text", "default": "+15 mil clientes iluminadas", "label": "Texto de prova social" },
+    { "type": "text", "id": "rating_text", "default": "4.9 nas avaliações", "label": "Texto de avaliação" },
+    { "type": "image_picker", "id": "image", "label": "Imagem (opcional — sem imagem usa bloco de cor)" },
+    { "type": "text", "id": "corner_badge", "default": "Vegano", "label": "Selo sobre a imagem" },
+    { "type": "text", "id": "card_label", "default": "Rotina de 3 passos", "label": "Card — rótulo" },
+    { "type": "text", "id": "card_title", "default": "Resultado em 14 dias", "label": "Card — título" }
+  ],
+  "presets": [{ "name": "Safa · Hero" }]
+}
+{% endschema %}

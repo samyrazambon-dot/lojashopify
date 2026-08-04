@@ -1,0 +1,201 @@
+{%- comment -%}
+  SAFA — grade de produtos "queridinhos da comunidade": cada block escolhe um
+  produto real + um selo colorido (bestseller/novo/queridinho/viral).
+{%- endcomment -%}
+<div class="safa-products page-width" data-section-id="{{ section.id }}">
+  <div class="safa-products__header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="safa-products__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
+      <h2 class="safa-products__heading">
+        <span class="safa-products__heading-dark">{{ section.settings.heading_line1 | escape }}</span>
+        <span class="safa-products__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
+      </h2>
+    </div>
+    {%- if section.settings.view_all_link != blank -%}
+      <a href="{{ section.settings.view_all_link }}" class="safa-products__view-all">
+        {{ section.settings.view_all_label | default: 'Ver tudo' | escape }}
+      </a>
+    {%- endif -%}
+  </div>
+
+  <ul class="safa-products__grid" role="list">
+    {%- for block in section.blocks -%}
+      {%- assign product = block.settings.product -%}
+      <li class="safa-products__card" {{ block.shopify_attributes }}>
+        <div class="safa-products__media">
+          {%- if block.settings.badge_label != blank -%}
+            <span class="safa-products__badge safa-products__badge--{{ block.settings.badge_color }}">
+              {{ block.settings.badge_label | escape }}
+            </span>
+          {%- endif -%}
+          {%- if product != blank and product.featured_image -%}
+            <a href="{{ product.url }}">
+              {{
+                product.featured_image
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', class: 'safa-products__image', widths: '300, 450, 600', alt: product.title | escape
+              }}
+            </a>
+          {%- else -%}
+            <div class="safa-products__placeholder"></div>
+          {%- endif -%}
+        </div>
+
+        <div class="safa-products__info">
+          <h3 class="safa-products__title">{{ product.title | default: 'Produto' | escape }}</h3>
+          {%- if block.settings.description != blank -%}
+            <p class="safa-products__desc">{{ block.settings.description | escape }}</p>
+          {%- endif -%}
+
+          {%- if product != blank -%}
+            <div class="safa-products__price">
+              <span class="safa-products__price-main">{{ product.price | money }}</span>
+              <span class="safa-products__price-installment">
+                ou 3x de {{ product.price | divided_by: 3.0 | money }} sem juros
+              </span>
+            </div>
+
+            {%- form 'product', product -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <button type="submit" class="safa-products__add">Adicionar à sacola</button>
+            {%- endform -%}
+          {%- endif -%}
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+<style>
+  .safa-products { padding: 72px 20px; }
+  .safa-products__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .safa-products__eyebrow {
+    display: block;
+    color: #ff2d95;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .safa-products__heading { font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; line-height: 1.02; margin: 0; }
+  .safa-products__heading-dark { display: block; color: #2a0a2e; }
+  .safa-products__heading-pink { display: block; color: #ff2d95; font-style: italic; }
+  .safa-products__view-all {
+    flex-shrink: 0;
+    display: inline-flex;
+    padding: 14px 26px;
+    border: 1.5px solid #2a0a2e;
+    border-radius: 999px;
+    color: #2a0a2e;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .safa-products__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .safa-products__card { display: flex; flex-direction: column; }
+  .safa-products__media { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 1; background: #f4ece8; }
+  .safa-products__image { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .safa-products__placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, #f4ece8, #e8d3e0); }
+  .safa-products__badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #2a0a2e;
+  }
+  .safa-products__badge--pink { background: #ff2d95; color: #ffffff; }
+  .safa-products__badge--green { background: #d6f24e; }
+  .safa-products__badge--orange { background: #ff6b35; color: #ffffff; }
+  .safa-products__badge--purple { background: #b9a6f5; }
+
+  .safa-products__info { padding-top: 16px; }
+  .safa-products__title { font-size: 17px; font-weight: 800; color: #2a0a2e; margin: 0 0 4px; }
+  .safa-products__desc { font-size: 13px; color: #6b5866; margin: 0 0 10px; line-height: 1.4; }
+  .safa-products__price { margin-bottom: 14px; }
+  .safa-products__price-main { font-size: 18px; font-weight: 800; color: #ff2d95; margin-right: 8px; }
+  .safa-products__price-installment { font-size: 12px; color: #6b5866; }
+  .safa-products__add {
+    width: 100%;
+    padding: 14px;
+    background: #2a0a2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .safa-products__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media screen and (max-width: 560px) {
+    .safa-products__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Produtos",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "A coleção", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Os queridinhos", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "da comunidade.", "label": "Título — linha 2 (rosa)" },
+    { "type": "text", "id": "view_all_label", "default": "Ver tudo", "label": "Botão — texto" },
+    { "type": "url", "id": "view_all_link", "label": "Botão — link" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produto",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Produto" },
+        { "type": "text", "id": "description", "label": "Descrição curta" },
+        { "type": "text", "id": "badge_label", "label": "Selo (texto)" },
+        {
+          "type": "select",
+          "id": "badge_color",
+          "label": "Selo (cor)",
+          "options": [
+            { "value": "pink", "label": "Rosa" },
+            { "value": "green", "label": "Verde" },
+            { "value": "orange", "label": "Laranja" },
+            { "value": "purple", "label": "Roxo" }
+          ],
+          "default": "pink"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Safa · Produtos" }]
+}
+{% endschema %}

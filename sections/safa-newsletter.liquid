@@ -1,0 +1,128 @@
+{%- comment -%}
+  SAFA — CTA "Clube do Brilho": card rosa com form de newsletter nativo (customer tag)
+  e decoração de quarto-de-círculo roxo com estrela verde no canto.
+{%- endcomment -%}
+<div class="safa-news page-width" data-section-id="{{ section.id }}">
+  <div class="safa-news__card">
+    <div class="safa-news__decor">
+      <span class="safa-news__star">★</span>
+    </div>
+
+    <div class="safa-news__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="safa-news__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
+      <h2 class="safa-news__heading">
+        <span>{{ section.settings.heading_line1 | escape }}</span>
+        <span class="safa-news__heading-italic">{{ section.settings.heading_line2 | escape }}</span>
+      </h2>
+      {%- if section.settings.text != blank -%}
+        <p class="safa-news__text">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+
+      {%- form 'customer', class: 'safa-news__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label class="visually-hidden" for="SafaNewsletterEmail">E-mail</label>
+        <input
+          id="SafaNewsletterEmail"
+          type="email"
+          name="contact[email]"
+          class="safa-news__input"
+          placeholder="{{ section.settings.email_placeholder | default: 'Seu melhor e-mail' | escape }}"
+          required
+        >
+        <button type="submit" class="safa-news__submit">{{ section.settings.button_label | default: 'Quero brilhar' | escape }}</button>
+        {%- if form.errors -%}
+          <small class="safa-news__message">{{ form.errors.messages.email }}</small>
+        {%- elsif form.posted_successfully? -%}
+          <small class="safa-news__message">Obrigado por assinar!</small>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .safa-news { padding: 0 20px 72px; }
+  .safa-news__card {
+    position: relative;
+    background: #ff2d95;
+    border-radius: 28px;
+    padding: 56px;
+    overflow: hidden;
+  }
+  .safa-news__decor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 160px;
+    height: 160px;
+    background: #2a0a2e;
+    border-bottom-left-radius: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  .safa-news__star { color: #d6f24e; font-size: 22px; }
+  .safa-news__content { max-width: 560px; position: relative; z-index: 2; }
+  .safa-news__eyebrow {
+    display: block;
+    color: #2a0a2e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .safa-news__heading { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.05; color: #2a0a2e; margin: 0 0 16px; }
+  .safa-news__heading span { display: block; }
+  .safa-news__heading-italic { font-style: italic; }
+  .safa-news__text { color: #2a0a2e; font-size: 15px; line-height: 1.5; margin: 0 0 28px; opacity: 0.85; }
+
+  .safa-news__form { display: flex; gap: 12px; flex-wrap: wrap; }
+  .safa-news__input {
+    flex: 1;
+    min-width: 220px;
+    padding: 16px 22px;
+    border-radius: 999px;
+    border: none;
+    font-size: 14px;
+    background: #ffffff;
+    color: #2a0a2e;
+  }
+  .safa-news__submit {
+    padding: 16px 30px;
+    border-radius: 999px;
+    border: none;
+    background: #2a0a2e;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .safa-news__message { display: block; margin-top: 10px; color: #2a0a2e; font-weight: 700; }
+
+  @media screen and (max-width: 700px) {
+    .safa-news__card { padding: 36px 24px; }
+    .safa-news__decor { width: 100px; height: 100px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Newsletter",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Clube do brilho", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "10% off na sua", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "primeira compra.", "label": "Título — linha 2 (itálico)" },
+    { "type": "text", "id": "text", "default": "Entre pro Clube Safa e receba lançamentos, dicas de ritual e mimos exclusivos.", "label": "Texto" },
+    { "type": "text", "id": "email_placeholder", "default": "Seu melhor e-mail", "label": "Placeholder do e-mail" },
+    { "type": "text", "id": "button_label", "default": "Quero brilhar", "label": "Botão — texto" }
+  ],
+  "presets": [{ "name": "Safa · Newsletter" }]
+}
+{% endschema %}

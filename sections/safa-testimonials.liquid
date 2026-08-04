@@ -1,0 +1,117 @@
+{%- comment -%}
+  SAFA — depoimentos: 3 cards coloridos (verde/roxo/rosa) com estrelas, citação e avatar.
+{%- endcomment -%}
+<div class="safa-testi page-width" data-section-id="{{ section.id }}">
+  <div class="safa-testi__header">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="safa-testi__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+    {%- endif -%}
+    <h2 class="safa-testi__heading">
+      <span class="safa-testi__heading-dark">{{ section.settings.heading_line1 | escape }}</span>
+      <span class="safa-testi__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
+    </h2>
+  </div>
+
+  <div class="safa-testi__grid">
+    {%- for block in section.blocks -%}
+      <div class="safa-testi__card safa-testi__card--{{ block.settings.color }}" {{ block.shopify_attributes }}>
+        <span class="safa-testi__stars">★★★★★</span>
+        <p class="safa-testi__quote">“{{ block.settings.quote | escape }}”</p>
+        <div class="safa-testi__author">
+          <span class="safa-testi__avatar">{{ block.settings.name | slice: 0, 1 }}</span>
+          <span class="safa-testi__author-info">
+            <strong>{{ block.settings.name | escape }}</strong>
+            <span>{{ block.settings.handle | escape }}</span>
+          </span>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .safa-testi { padding: 72px 20px; }
+  .safa-testi__header { text-align: center; margin-bottom: 40px; }
+  .safa-testi__eyebrow {
+    display: block;
+    color: #ff2d95;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .safa-testi__heading { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.1; margin: 0; }
+  .safa-testi__heading-dark { display: block; color: #2a0a2e; }
+  .safa-testi__heading-pink { display: block; color: #ff2d95; font-style: italic; }
+
+  .safa-testi__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .safa-testi__card { border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+  .safa-testi__card--green { background: #d6f24e; }
+  .safa-testi__card--purple { background: #b9a6f5; }
+  .safa-testi__card--pink { background: #ff9fd0; }
+  .safa-testi__stars { color: #ff2d95; letter-spacing: 2px; font-size: 15px; }
+  .safa-testi__quote { color: #2a0a2e; font-size: 17px; line-height: 1.5; font-weight: 600; margin: 0; flex-grow: 1; }
+  .safa-testi__author { display: flex; align-items: center; gap: 12px; }
+  .safa-testi__avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: #2a0a2e; color: #ffffff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px; text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .safa-testi__author-info { display: flex; flex-direction: column; font-size: 13px; color: #2a0a2e; }
+  .safa-testi__author-info span { opacity: 0.7; }
+
+  @media screen and (max-width: 900px) {
+    .safa-testi__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Depoimentos",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "#usesafa", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Quem é Safa tem", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "brilho próprio.", "label": "Título — linha 2 (rosa)" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Depoimento",
+      "settings": [
+        { "type": "textarea", "id": "quote", "default": "Adorei o resultado.", "label": "Depoimento" },
+        { "type": "text", "id": "name", "default": "Nome", "label": "Nome" },
+        { "type": "text", "id": "handle", "default": "@usuario", "label": "@ do usuário" },
+        {
+          "type": "select",
+          "id": "color",
+          "label": "Cor do card",
+          "options": [
+            { "value": "green", "label": "Verde" },
+            { "value": "purple", "label": "Roxo" },
+            { "value": "pink", "label": "Rosa" }
+          ],
+          "default": "green"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · Depoimentos",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "Uso o Lumin Up há 3 semanas e a pele da virilha ficou uniforme igual eu queria. Virei fã.", "name": "Marina G.", "handle": "@mari.g", "color": "green" } },
+        { "type": "testimonial", "settings": { "quote": "O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.", "name": "Beatriz S.", "handle": "@beasan", "color": "purple" } },
+        { "type": "testimonial", "settings": { "quote": "Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.", "name": "Camila R.", "handle": "@cami.r", "color": "pink" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

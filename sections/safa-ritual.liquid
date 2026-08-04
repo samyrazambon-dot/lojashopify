@@ -1,0 +1,164 @@
+{%- comment -%}
+  SAFA — "Três passos. Um brilho." fundo roxo escuro, imagem à esquerda com
+  badge circular girando, 3 steps numerados à direita.
+{%- endcomment -%}
+<div class="safa-ritual" data-section-id="{{ section.id }}">
+  <div class="safa-ritual__grid page-width">
+    <div class="safa-ritual__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag: loading: 'lazy', class: 'safa-ritual__image', widths: '400, 600, 900, 1200', alt: section.settings.heading_line1 | escape
+        }}
+      {%- else -%}
+        <div class="safa-ritual__placeholder"></div>
+      {%- endif -%}
+
+      <svg viewBox="0 0 160 160" class="safa-ritual__spin">
+        <defs>
+          <path id="ritualCircle-{{ section.id }}" d="M 80,80 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" />
+        </defs>
+        <circle cx="80" cy="80" r="80" fill="#ff2d95"></circle>
+        <text font-size="10.5" font-weight="800" letter-spacing="2.5" fill="#2a0a2e">
+          <textPath href="#ritualCircle-{{ section.id }}">• CUIDADO • BELEZA • BEM-ESTAR </textPath>
+        </text>
+        <text x="80" y="90" text-anchor="middle" font-size="24" fill="#2a0a2e">★</text>
+      </svg>
+    </div>
+
+    <div class="safa-ritual__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="safa-ritual__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
+      <h2 class="safa-ritual__heading">
+        <span class="safa-ritual__heading-white">{{ section.settings.heading_line1 | escape }}</span>
+        <span class="safa-ritual__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
+      </h2>
+      {%- if section.settings.text != blank -%}
+        <p class="safa-ritual__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      <div class="safa-ritual__steps">
+        {%- for block in section.blocks -%}
+          <div class="safa-ritual__step" {{ block.shopify_attributes }}>
+            <span class="safa-ritual__number safa-ritual__number--{{ block.settings.color }}">{{ block.settings.number }}</span>
+            <div>
+              <strong class="safa-ritual__step-title">{{ block.settings.title | escape }}</strong>
+              <p class="safa-ritual__step-text">{{ block.settings.text | escape }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .safa-ritual { background: #2a0a2e; padding: 80px 20px; }
+  .safa-ritual__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .safa-ritual__media { position: relative; }
+  .safa-ritual__image, .safa-ritual__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    object-fit: cover;
+    display: block;
+  }
+  .safa-ritual__placeholder { background: linear-gradient(155deg, #ffb347, #ff2d95 55%, #2a0a2e); }
+  .safa-ritual__spin {
+    position: absolute;
+    width: 130px;
+    left: -30px;
+    bottom: -30px;
+    animation: safa-ritual-spin 24s linear infinite;
+  }
+  @keyframes safa-ritual-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .safa-ritual__eyebrow {
+    display: block;
+    color: #ff6b35;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .safa-ritual__heading { font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; line-height: 1.02; margin: 0 0 18px; }
+  .safa-ritual__heading-white { display: block; color: #ffffff; }
+  .safa-ritual__heading-pink { display: block; color: #ff2d95; font-style: italic; }
+  .safa-ritual__text { color: #d8c7d4; font-size: 16px; line-height: 1.6; max-width: 480px; margin: 0 0 36px; }
+
+  .safa-ritual__steps { display: flex; flex-direction: column; gap: 16px; }
+  .safa-ritual__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 22px 24px;
+  }
+  .safa-ritual__number { font-size: 30px; font-weight: 900; line-height: 1; flex-shrink: 0; }
+  .safa-ritual__number--orange { color: #ff6b35; }
+  .safa-ritual__number--pink { color: #ff2d95; }
+  .safa-ritual__number--purple { color: #b9a6f5; }
+  .safa-ritual__step-title { display: block; color: #ffffff; font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+  .safa-ritual__step-text { color: #d8c7d4; font-size: 14px; line-height: 1.5; margin: 0; }
+
+  @media screen and (max-width: 1000px) {
+    .safa-ritual__grid { grid-template-columns: 1fr; }
+    .safa-ritual__spin { width: 100px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Ritual",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Imagem (opcional — sem imagem usa bloco de cor)" },
+    { "type": "text", "id": "eyebrow", "default": "O ritual Safa", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Três passos.", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "Um brilho.", "label": "Título — linha 2 (rosa)" },
+    { "type": "richtext", "id": "text", "default": "<p>Uma rotina simples pra celebrar cada centímetro do seu corpo — do rosto ao popô.</p>", "label": "Texto" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Passo",
+      "settings": [
+        { "type": "text", "id": "number", "default": "01", "label": "Número" },
+        { "type": "text", "id": "title", "default": "Limpe", "label": "Título" },
+        { "type": "text", "id": "text", "default": "Descrição do passo.", "label": "Descrição" },
+        {
+          "type": "select",
+          "id": "color",
+          "label": "Cor do número",
+          "options": [
+            { "value": "orange", "label": "Laranja" },
+            { "value": "pink", "label": "Rosa" },
+            { "value": "purple", "label": "Roxo" }
+          ],
+          "default": "orange"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · Ritual",
+      "blocks": [
+        { "type": "step", "settings": { "number": "01", "title": "Limpe", "text": "Use o Tônico Facial com D-Pantenol para preparar a pele: hidrata e refresca sem ressecar.", "color": "orange" } },
+        { "type": "step", "settings": { "number": "02", "title": "Trate", "text": "Aplique o Sérum Lumin Up nas áreas que pedem uniformização. Massageie até absorver.", "color": "pink" } },
+        { "type": "step", "settings": { "number": "03", "title": "Ilumine", "text": "Finalize com Multi Glow no rosto e Popo Glow no corpo. É brilho de dentro pra fora.", "color": "purple" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

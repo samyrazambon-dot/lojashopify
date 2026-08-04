@@ -1,0 +1,70 @@
+{%- comment -%}
+  SAFA — ticker/marquee infinito, fundo roxo escuro, itens separados por estrela rosa.
+{%- endcomment -%}
+<div class="safa-marquee">
+  <div class="safa-marquee__track">
+    {%- for i in (1..2) -%}
+      <div class="safa-marquee__group" aria-hidden="{% if i == 2 %}true{% else %}false{% endif %}">
+        {%- for block in section.blocks -%}
+          <span class="safa-marquee__item">{{ block.settings.text | escape }}</span>
+          <span class="safa-marquee__star">★</span>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .safa-marquee {
+    background: #2a0a2e;
+    overflow: hidden;
+    padding: 18px 0;
+  }
+  .safa-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: safa-marquee-scroll 28s linear infinite;
+  }
+  .safa-marquee__group { display: flex; align-items: center; flex-shrink: 0; }
+  .safa-marquee__item {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    padding: 0 24px;
+  }
+  .safa-marquee__star { color: #ff2d95; font-size: 16px; }
+  @keyframes safa-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Ticker",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "text", "default": "Safa tem brilho próprio", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · Ticker",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Safa tem brilho próprio" } },
+        { "type": "item", "settings": { "text": "Beleza, cuidado & bem-estar todo dia" } },
+        { "type": "item", "settings": { "text": "Espalhe o que te ilumina" } },
+        { "type": "item", "settings": { "text": "Seja Safa" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
