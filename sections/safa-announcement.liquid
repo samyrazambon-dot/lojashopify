@@ -1,0 +1,61 @@
+{%- comment -%}
+  SAFA — barra de anúncio fixa no topo (frete grátis, parcelamento, trocas).
+{%- endcomment -%}
+<div class="safa-announce">
+  <div class="safa-announce__track page-width">
+    {%- for block in section.blocks -%}
+      <span class="safa-announce__item" {{ block.shopify_attributes }}>
+        <span class="safa-announce__star">✦</span>{{ block.settings.text | escape }}
+      </span>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .safa-announce {
+    background: #2a0a2e;
+    color: #ffffff;
+  }
+  .safa-announce__track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .safa-announce__star { color: #ff2d95; margin-right: 8px; }
+  @media screen and (max-width: 700px) {
+    .safa-announce__track { gap: 18px; font-size: 11px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Barra de anúncio",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "text", "default": "Frete grátis acima de R$ 149", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · Barra de anúncio",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Frete grátis acima de R$ 149" } },
+        { "type": "item", "settings": { "text": "3x sem juros" } },
+        { "type": "item", "settings": { "text": "Trocas em 30 dias" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
