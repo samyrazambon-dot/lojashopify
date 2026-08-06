@@ -1,0 +1,210 @@
+{%- comment -%}
+  SAFA — Bloco de benefícios do Popo Glow: produto ao centro, 6 benefícios em
+  duas colunas, caixa de aviso, selos e CTA.
+{%- endcomment -%}
+<div class="safa-benefits page-width" data-section-id="{{ section.id }}">
+  <div class="safa-benefits__header">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="safa-benefits__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+    {%- endif -%}
+    <h2 class="safa-benefits__heading">
+      <span class="safa-benefits__heading-dark">{{ section.settings.heading_line1 | escape }}</span>
+      <span class="safa-benefits__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
+    </h2>
+  </div>
+
+  <div class="safa-benefits__media">
+    {%- if section.settings.image_asset != blank -%}
+      <img src="{{ section.settings.image_asset | asset_url }}" alt="Popo Glow" class="safa-benefits__image" loading="lazy">
+    {%- else -%}
+      <div class="safa-benefits__placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="safa-benefits__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'benefit' -%}
+        <div class="safa-benefits__card{% if block.settings.highlight %} safa-benefits__card--highlight{% endif %}" {{ block.shopify_attributes }}>
+          <strong class="safa-benefits__card-title">{{ block.settings.title | escape }}</strong>
+          <p class="safa-benefits__card-text">{{ block.settings.text | escape }}</p>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.notice_title != blank -%}
+    <div class="safa-benefits__notice">
+      <strong class="safa-benefits__notice-title">{{ section.settings.notice_title | escape }}</strong>
+      <p class="safa-benefits__notice-text">{{ section.settings.notice_text | escape }}</p>
+    </div>
+  {%- endif -%}
+
+  <div class="safa-benefits__seals">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'seal' -%}
+        <span class="safa-benefits__seal" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</span>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="safa-benefits__cta">
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link }}" class="safa-benefits__button">{{ section.settings.button_label | escape }}</a>
+    {%- endif -%}
+    {%- if section.settings.button_subtext != blank -%}
+      <span class="safa-benefits__cta-subtext">{{ section.settings.button_subtext | escape }}</span>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .safa-benefits { padding: 72px 20px; }
+  .safa-benefits__header { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+  .safa-benefits__eyebrow {
+    display: block;
+    color: #ff73d7;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .safa-benefits__heading { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.08; margin: 0; }
+  .safa-benefits__heading-dark { display: block; color: #2a0a2e; }
+  .safa-benefits__heading-pink { display: block; color: #ff73d7; font-style: italic; }
+
+  .safa-benefits__media { max-width: 320px; margin: 0 auto 44px; }
+  .safa-benefits__image, .safa-benefits__placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 24px;
+    object-fit: cover;
+    display: block;
+  }
+  .safa-benefits__placeholder { background: linear-gradient(155deg, #ffb347, #ff73d7 55%, #2a0a2e); }
+
+  .safa-benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 920px;
+    margin: 0 auto 40px;
+  }
+  .safa-benefits__card {
+    background: #fdf6fa;
+    border: 1px solid #f4dcee;
+    border-radius: 18px;
+    padding: 22px 24px;
+  }
+  .safa-benefits__card--highlight {
+    background: #2a0a2e;
+    border-color: #2a0a2e;
+  }
+  .safa-benefits__card--highlight .safa-benefits__card-title { color: #ff73d7; }
+  .safa-benefits__card--highlight .safa-benefits__card-text { color: #d8c7d4; }
+  .safa-benefits__card-title { display: block; color: #2a0a2e; font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+  .safa-benefits__card-text { color: #6b5866; font-size: 14px; line-height: 1.55; margin: 0; }
+
+  .safa-benefits__notice {
+    max-width: 640px;
+    margin: 0 auto 40px;
+    background: #f5f0f7;
+    border: 1px solid #e5d6ea;
+    border-radius: 16px;
+    padding: 20px 24px;
+  }
+  .safa-benefits__notice-title { display: block; color: #2a0a2e; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .safa-benefits__notice-text { color: #6b5866; font-size: 13px; line-height: 1.6; margin: 0; }
+
+  .safa-benefits__seals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 36px;
+  }
+  .safa-benefits__seal {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e8d3e0;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #2a0a2e;
+  }
+
+  .safa-benefits__cta { text-align: center; }
+  .safa-benefits__button {
+    display: inline-block;
+    background: #2a0a2e;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .safa-benefits__cta-subtext { display: block; margin-top: 14px; color: #6b5866; font-size: 13px; }
+
+  @media screen and (max-width: 640px) {
+    .safa-benefits__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Benefícios",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "image_asset", "label": "Imagem (arquivo do tema)" },
+    { "type": "text", "id": "eyebrow", "default": "Popo Glow", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Por que o Popo Glow não é", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "mais um creme corporal.", "label": "Título — linha 2 (rosa)" },
+    { "type": "text", "id": "notice_title", "default": "Sobre a sensação de aquecimento", "label": "Título do aviso" },
+    { "type": "textarea", "id": "notice_text", "label": "Texto do aviso" },
+    { "type": "text", "id": "button_label", "default": "Quero começar meu ritual", "label": "Botão — texto" },
+    { "type": "url", "id": "button_link", "label": "Botão — link" },
+    { "type": "text", "id": "button_subtext", "default": "Frete grátis na primeira compra · Troca em até 30 dias", "label": "Texto abaixo do botão" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefício",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título" },
+        { "type": "textarea", "id": "text", "label": "Texto" },
+        { "type": "checkbox", "id": "highlight", "label": "Destacar (card escuro)", "default": false }
+      ]
+    },
+    {
+      "type": "seal",
+      "name": "Selo",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto do selo" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · Benefícios",
+      "blocks": [
+        { "type": "benefit", "settings": { "title": "Sensação de aquecimento", "text": "Você sente o calor logo na aplicação. É ele que marca a região e transforma passar creme em ritual." } },
+        { "type": "benefit", "settings": { "title": "Hidratação profunda", "text": "Hidrata e melhora a maciez e a elasticidade da pele, com textura que absorve sem deixar a região pegajosa." } },
+        { "type": "benefit", "settings": { "title": "Aparente de estrias atenuada", "text": "Com o uso contínuo, atenua a aparência de estrias e deixa a pele com aspecto mais uniforme." } },
+        { "type": "benefit", "settings": { "title": "Aspecto mais firme", "text": "Proporciona sensação de firmeza e efeito tensor imediato, com aspecto mais firme após a aplicação." } },
+        { "type": "benefit", "settings": { "title": "Textura mais uniforme", "text": "Auxilia na melhora da aparência da pele com aspecto de casca de laranja, deixando a superfície visualmente mais lisa." } },
+        { "type": "benefit", "settings": { "title": "Feito para uma região só", "text": "Não é hidratante corporal genérico. Foi formulado para a região que passa oito horas por dia comprimida.", "highlight": true } },
+        { "type": "seal", "settings": { "label": "Produto notificado ANVISA" } },
+        { "type": "seal", "settings": { "label": "Vegano" } },
+        { "type": "seal", "settings": { "label": "Não testado em animais" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
