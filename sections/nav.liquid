@@ -14,7 +14,7 @@
     </button>
 
     <a href="{{ routes.root_url }}" class="header__logo-link">
-      {{ 'safa-logo-pink.png' | asset_url | image_tag: alt: 'Safa', class: 'header__logo-image', width: 120, height: 37, loading: 'eager' }}
+      <img src="{{ 'safa-logo-pink.png' | asset_url }}" alt="Safa" class="header__logo-image" width="120" height="37" loading="eager">
     </a>
 
     <nav class="header__nav" role="navigation" aria-label="{{ 'sections.header.menu' | t }}">
