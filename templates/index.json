@@ -23,8 +23,7 @@
         "button_link_2": "/pages/sobre",
         "stat_text": "",
         "rating_text": "",
-        "image_asset": "popo-glow-hero.jpg",
-        "media_style": "card",
+        "image_url": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/capa-banner.png?v=1786033484",
         "corner_badge": "Sensação de aquecimento",
         "card_label": "Ritual de 2 minutos",
         "card_title": "Todo dia, depois do banho."
@@ -70,7 +69,7 @@
         },
         "p4": {
           "type": "product",
-          "settings": { "product": "safa-popo-glow-creme-de-massagem-termogenico-250g", "description": "Creme de massagem termogênico · 250g", "badge_label": "Viral", "badge_color": "purple" }
+          "settings": { "product": "safa-popo-glow-creme-de-massagem-termogenico-250g", "description": "Creme de massagem termogênico · 250g", "badge_label": "Viral", "badge_color": "purple", "image_override": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-product-original.jpg?v=1786033485" }
         },
         "p5": {
           "type": "product",
@@ -95,7 +94,7 @@
       },
       "block_order": ["s1", "s2", "s3"],
       "settings": {
-        "image_asset": "popo-glow-ritual-final.jpg",
+        "image_url": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-ritual-original.jpg?v=1786033485",
         "eyebrow": "O ritual · Popo Glow",
         "heading_line1": "Três passos.",
         "heading_line2": "Dois minutos.",
@@ -145,7 +144,7 @@
       },
       "block_order": ["b1", "b2", "b3", "b4", "b5", "b6", "s1", "s2", "s3"],
       "settings": {
-        "image_asset": "popo-glow-hero.jpg",
+        "image_url": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-benefits-original.jpg?v=1786033485",
         "eyebrow": "Popo Glow",
         "heading_line1": "Por que o Popo Glow não é",
         "heading_line2": "mais um creme corporal.",
