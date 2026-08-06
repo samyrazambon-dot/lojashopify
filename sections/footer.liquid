@@ -1,6 +1,6 @@
 {%- comment -%}
-  SAFA — footer: fundo roxo escuro, marca + tagline + socials (IG/TT/YT em
-  círculos), colunas de menu, barra inferior com copyright + tagline à direita.
+  SAFA — footer: fundo roxo escuro, logo oficial + tagline + contato (SAC/Instagram)
+  + socials (IG/TT/YT em círculos), colunas de menu, barra inferior com copyright.
 {%- endcomment -%}
 <footer class="footer" data-section-id="{{ section.id }}">
   <div class="footer__top page-width">
@@ -8,10 +8,18 @@
       {%- case block.type -%}
         {%- when 'brand' -%}
           <div class="footer__block footer__block--brand" {{ block.shopify_attributes }}>
-            <p class="footer__brand-name">Safa<span class="footer__brand-star">✦</span></p>
+            {{ 'safa-logo-white.png' | asset_url | image_tag: alt: 'Safa', class: 'footer__logo', width: 130, height: 40 }}
             {%- if block.settings.text != blank -%}
               <div class="footer__text rte">{{ block.settings.text }}</div>
             {%- endif -%}
+            <div class="footer__contact">
+              {%- if block.settings.contact_email != blank -%}
+                <a href="mailto:{{ block.settings.contact_email }}">{{ block.settings.contact_email }}</a>
+              {%- endif -%}
+              {%- if block.settings.instagram_handle != blank -%}
+                <a href="{{ block.settings.instagram_link }}" target="_blank" rel="noopener">{{ block.settings.instagram_handle }}</a>
+              {%- endif -%}
+            </div>
             <ul class="footer__social" role="list">
               {%- if block.settings.instagram_link != blank -%}
                 <li><a href="{{ block.settings.instagram_link }}" target="_blank" rel="noopener">IG</a></li>
@@ -73,15 +81,7 @@
     padding-top: 64px;
     padding-bottom: 48px;
   }
-  .footer__brand-name {
-    font-family: var(--font-heading-family);
-    font-size: 26px;
-    font-weight: 900;
-    color: #ff73d7;
-    margin: 0 0 14px;
-    text-transform: uppercase;
-  }
-  .footer__brand-star { font-size: 0.7em; margin-left: 3px; }
+  .footer__logo { display: block; height: auto; margin-bottom: 16px; }
   .footer__heading {
     font-size: 12px;
     font-weight: 800;
@@ -93,7 +93,10 @@
   .footer__menu { list-style: none; margin: 0; padding: 0; }
   .footer__link { display: inline-block; padding: 6px 0; color: #ffffff; text-decoration: none; font-size: 14px; opacity: 0.85; }
   .footer__link:hover { text-decoration: underline; opacity: 1; }
-  .footer__text { font-size: 14px; line-height: 1.6; opacity: 0.75; max-width: 320px; margin-bottom: 20px; }
+  .footer__text { font-size: 14px; line-height: 1.6; opacity: 0.75; max-width: 320px; margin-bottom: 16px; }
+  .footer__contact { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+  .footer__contact a { color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; opacity: 0.9; }
+  .footer__contact a:hover { text-decoration: underline; opacity: 1; }
   .footer__social { display: flex; gap: 10px; list-style: none; margin: 0; padding: 0; }
   .footer__social a {
     display: flex;
@@ -149,6 +152,8 @@
       "limit": 1,
       "settings": [
         { "type": "richtext", "id": "text", "label": "t:sections.footer.blocks.brand.settings.text.label" },
+        { "type": "text", "id": "contact_email", "label": "E-mail de contato (SAC)" },
+        { "type": "text", "id": "instagram_handle", "label": "Instagram — texto exibido (@usuario)" },
         { "type": "text", "id": "instagram_link", "label": "Instagram (URL)" },
         { "type": "text", "id": "tiktok_link", "label": "TikTok (URL)" },
         { "type": "text", "id": "youtube_link", "label": "YouTube (URL)" }
