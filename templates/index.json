@@ -33,90 +33,24 @@
     "regioes": {
       "type": "safa-region-band",
       "blocks": {
-        "r1": {
-          "type": "region",
-          "settings": {
-            "product": "Popo Glow",
-            "area": "Glúteos",
-            "link": "/products/safa-popo-glow-creme-de-massagem-termogenico-250g"
-          }
-        },
-        "r2": {
-          "type": "region",
-          "settings": {
-            "product": "Densy Hair",
-            "area": "Couro cabeludo",
-            "link": "/products/safa-serum-capilar-densy-hair-30ml"
-          }
-        },
-        "r3": {
-          "type": "region",
-          "settings": {
-            "product": "Lumin Up",
-            "area": "Áreas de atrito",
-            "link": "/products/safa-serum-uniformizador-lumin-up-30ml"
-          }
-        },
-        "r4": {
-          "type": "region",
-          "settings": {
-            "product": "Linha facial",
-            "area": "Rosto",
-            "link": "/products/safa-tonico-facial-120ml"
-          }
-        }
+        "r1": { "type": "region", "settings": { "product": "Popo Glow", "area": "Glúteos", "link": "/products/safa-popo-glow-creme-de-massagem-termogenico-250g" } },
+        "r2": { "type": "region", "settings": { "product": "Densy Hair", "area": "Couro cabeludo", "link": "/products/safa-serum-capilar-densy-hair-30ml" } },
+        "r3": { "type": "region", "settings": { "product": "Lumin Up", "area": "Áreas de atrito", "link": "/products/safa-serum-uniformizador-lumin-up-30ml" } },
+        "r4": { "type": "region", "settings": { "product": "Linha facial", "area": "Rosto", "link": "/products/safa-tonico-facial-120ml" } }
       },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4"
-      ],
-      "settings": {
-        "heading": "Cada produto liberta uma região"
-      }
+      "block_order": ["r1", "r2", "r3", "r4"],
+      "settings": { "heading": "Cada produto liberta uma região" }
     },
     "marquee": {
       "type": "safa-marquee",
       "blocks": {
-        "i1": {
-          "type": "item",
-          "settings": {
-            "text": "Safa tem brilho próprio"
-          }
-        },
-        "i2": {
-          "type": "item",
-          "settings": {
-            "text": "Beleza, cuidado & bem-estar todo dia"
-          }
-        },
-        "i3": {
-          "type": "item",
-          "settings": {
-            "text": "Espalhe o que te ilumina"
-          }
-        },
-        "i4": {
-          "type": "item",
-          "settings": {
-            "text": "Seja Safa"
-          }
-        },
-        "i5": {
-          "type": "item",
-          "settings": {
-            "text": "Quem é Safa tem brilho próprio"
-          }
-        }
+        "i1": { "type": "item", "settings": { "text": "Safa tem brilho próprio" } },
+        "i2": { "type": "item", "settings": { "text": "Beleza, cuidado & bem-estar todo dia" } },
+        "i3": { "type": "item", "settings": { "text": "Espalhe o que te ilumina" } },
+        "i4": { "type": "item", "settings": { "text": "Seja Safa" } },
+        "i5": { "type": "item", "settings": { "text": "Quem é Safa tem brilho próprio" } }
       },
-      "block_order": [
-        "i1",
-        "i2",
-        "i3",
-        "i4",
-        "i5"
-      ],
+      "block_order": ["i1", "i2", "i3", "i4", "i5"],
       "settings": {}
     },
     "produtos": {
@@ -124,57 +58,26 @@
       "blocks": {
         "p1": {
           "type": "product",
-          "settings": {
-            "product": "safa-serum-uniformizador-lumin-up-30ml",
-            "description": "Uniformizador — axilas, virilha & joelhos · 30ml",
-            "badge_label": "Bestseller",
-            "badge_color": "pink"
-          }
+          "settings": { "product": "safa-serum-uniformizador-lumin-up-30ml", "description": "Uniformizador — axilas, virilha & joelhos · 30ml", "badge_label": "Bestseller", "badge_color": "pink" }
         },
         "p2": {
           "type": "product",
-          "settings": {
-            "product": "safa-tonico-facial-120ml",
-            "description": "Hidratante com D-Pantenol · 120ml",
-            "badge_label": "Novo",
-            "badge_color": "green"
-          }
+          "settings": { "product": "safa-tonico-facial-120ml", "description": "Hidratante com D-Pantenol · 120ml", "badge_label": "Novo", "badge_color": "green" }
         },
         "p3": {
           "type": "product",
-          "settings": {
-            "product": "safa-serum-facial-5-em-1-multi-glow-30ml",
-            "description": "Sérum facial iluminador · 30ml",
-            "badge_label": "Queridinho",
-            "badge_color": "orange"
-          }
+          "settings": { "product": "safa-serum-facial-5-em-1-multi-glow-30ml", "description": "Sérum facial iluminador · 30ml", "badge_label": "Queridinho", "badge_color": "orange" }
         },
         "p4": {
           "type": "product",
-          "settings": {
-            "product": "safa-popo-glow-creme-de-massagem-termogenico-250g",
-            "description": "Creme de massagem termogênico · 250g",
-            "badge_label": "Viral",
-            "badge_color": "purple"
-          }
+          "settings": { "product": "safa-popo-glow-creme-de-massagem-termogenico-250g", "description": "Creme de massagem termogênico · 250g", "badge_label": "Viral", "badge_color": "purple" }
         },
         "p5": {
           "type": "product",
-          "settings": {
-            "product": "safa-serum-capilar-densy-hair-30ml",
-            "description": "Sérum capilar fortalecedor · 30ml",
-            "badge_label": "",
-            "badge_color": "pink"
-          }
+          "settings": { "product": "safa-serum-capilar-densy-hair-30ml", "description": "Sérum capilar fortalecedor · 30ml", "badge_label": "", "badge_color": "pink" }
         }
       },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
       "settings": {
         "eyebrow": "A coleção",
         "heading_line1": "Os queridinhos",
@@ -186,40 +89,13 @@
     "ritual": {
       "type": "safa-ritual",
       "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "number": "01",
-            "title": "O calor",
-            "text": "Aplique depois do banho, com a pele limpa. A sensação de aquecimento marca a região — é assim que você sente onde está cuidando, e é por isso que você não esquece de passar.",
-            "color": "orange"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "number": "02",
-            "title": "A massagem",
-            "text": "Retire com a espátula e espalhe com as mãos, em movimentos circulares, sem pressa. O gesto é metade do produto: é ele que trabalha a região de verdade.",
-            "color": "pink"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "number": "03",
-            "title": "A constância",
-            "text": "Todo dia, sempre no mesmo horário. Pele responde a repetição, não a intensidade. Em 21 dias deixa de ser tarefa e vira rotina.",
-            "color": "purple"
-          }
-        }
+        "s1": { "type": "step", "settings": { "number": "01", "title": "O calor", "text": "Aplique depois do banho, com a pele limpa. A sensação de aquecimento marca a região — é assim que você sente onde está cuidando, e é por isso que você não esquece de passar.", "color": "orange" } },
+        "s2": { "type": "step", "settings": { "number": "02", "title": "A massagem", "text": "Retire com a espátula e espalhe com as mãos, em movimentos circulares, sem pressa. O gesto é metade do produto: é ele que trabalha a região de verdade.", "color": "pink" } },
+        "s3": { "type": "step", "settings": { "number": "03", "title": "A constância", "text": "Todo dia, sempre no mesmo horário. Pele responde a repetição, não a intensidade. Em 21 dias deixa de ser tarefa e vira rotina.", "color": "purple" } }
       },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
+      "block_order": ["s1", "s2", "s3"],
       "settings": {
+        "image_asset": "popo-glow-ritual.jpg",
         "eyebrow": "O ritual · Popo Glow",
         "heading_line1": "Três passos.",
         "heading_line2": "Dois minutos.",
@@ -229,39 +105,11 @@
     "depoimentos": {
       "type": "safa-testimonials",
       "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Uso o Lumin Up há 3 semanas e a pele da virilha ficou uniforme igual eu queria. Virei fã.",
-            "name": "Marina G.",
-            "handle": "@mari.g",
-            "color": "green"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.",
-            "name": "Beatriz S.",
-            "handle": "@beasan",
-            "color": "purple"
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.",
-            "name": "Camila R.",
-            "handle": "@cami.r",
-            "color": "pink"
-          }
-        }
+        "t1": { "type": "testimonial", "settings": { "quote": "Uso o Lumin Up há 3 semanas e a pele da virilha ficou uniforme igual eu queria. Virei fã.", "name": "Marina G.", "handle": "@mari.g", "color": "green" } },
+        "t2": { "type": "testimonial", "settings": { "quote": "O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.", "name": "Beatriz S.", "handle": "@beasan", "color": "purple" } },
+        "t3": { "type": "testimonial", "settings": { "quote": "Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.", "name": "Camila R.", "handle": "@cami.r", "color": "pink" } }
       },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
+      "block_order": ["t1", "t2", "t3"],
       "settings": {
         "eyebrow": "#usesafa",
         "heading_line1": "Quem é Safa tem",
@@ -271,25 +119,10 @@
     "faciallinha": {
       "type": "safa-facial-duo",
       "blocks": {
-        "d1": {
-          "type": "product",
-          "settings": {
-            "product": "safa-tonico-facial-120ml",
-            "description": "Hidratante com D-Pantenol · 120ml"
-          }
-        },
-        "d2": {
-          "type": "product",
-          "settings": {
-            "product": "safa-serum-facial-5-em-1-multi-glow-30ml",
-            "description": "Sérum facial iluminador · 30ml"
-          }
-        }
+        "d1": { "type": "product", "settings": { "product": "safa-tonico-facial-120ml", "description": "Hidratante com D-Pantenol · 120ml" } },
+        "d2": { "type": "product", "settings": { "product": "safa-serum-facial-5-em-1-multi-glow-30ml", "description": "Sérum facial iluminador · 30ml" } }
       },
-      "block_order": [
-        "d1",
-        "d2"
-      ],
+      "block_order": ["d1", "d2"],
       "settings": {
         "eyebrow": "Também pro rosto",
         "heading_line1": "Tônico Facial",
@@ -309,14 +142,5 @@
       }
     }
   },
-  "order": [
-    "hero",
-    "regioes",
-    "marquee",
-    "produtos",
-    "ritual",
-    "depoimentos",
-    "faciallinha",
-    "newsletter"
-  ]
+  "order": ["hero", "regioes", "marquee", "produtos", "ritual", "depoimentos", "faciallinha", "newsletter"]
 }
