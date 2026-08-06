@@ -18,7 +18,9 @@
           "type": "brand",
           "settings": {
             "text": "<p>Beleza, cuidado pessoal e bem-estar que revelam o brilho único que há em cada pessoa.</p>",
-            "instagram_link": "#",
+            "contact_email": "contato@usesafa.com",
+            "instagram_handle": "@usesafa.br",
+            "instagram_link": "https://instagram.com/usesafa.br",
             "tiktok_link": "#",
             "youtube_link": "#"
           }
