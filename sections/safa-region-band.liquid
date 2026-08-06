@@ -1,0 +1,96 @@
+{%- comment -%}
+  SAFA — faixa "Cada produto liberta uma região": transforma o catálogo em
+  prova da tese (cada produto ligado a uma região do corpo), logo abaixo do hero.
+{%- endcomment -%}
+<div class="safa-region page-width" data-section-id="{{ section.id }}">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="safa-region__heading">{{ section.settings.heading | escape }}</h2>
+  {%- endif -%}
+  <ul class="safa-region__grid" role="list">
+    {%- for block in section.blocks -%}
+      <li class="safa-region__item" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.link }}" class="safa-region__link">
+          <span class="safa-region__product">{{ block.settings.product | escape }}</span>
+          <span class="safa-region__dot">·</span>
+          <span class="safa-region__area">{{ block.settings.area | escape }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+<style>
+  .safa-region { padding: 40px 20px; }
+  .safa-region__heading {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6b5866;
+    margin: 0 0 24px;
+  }
+  .safa-region__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .safa-region__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+    padding: 18px 12px;
+    border-radius: 16px;
+    background: #f9f2f6;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .safa-region__link:hover { background: #f4e3ee; }
+  .safa-region__product { font-size: 15px; font-weight: 800; color: #2a0a2e; }
+  .safa-region__dot { display: none; }
+  .safa-region__area { font-size: 13px; color: #ff73d7; font-weight: 700; }
+
+  @media screen and (max-width: 900px) {
+    .safa-region__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media screen and (max-width: 480px) {
+    .safa-region__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Regiões",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "default": "Cada produto liberta uma região", "label": "Título" }
+  ],
+  "blocks": [
+    {
+      "type": "region",
+      "name": "Região",
+      "settings": [
+        { "type": "text", "id": "product", "default": "Popo Glow", "label": "Produto" },
+        { "type": "text", "id": "area", "default": "Glúteos", "label": "Região do corpo" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · Regiões",
+      "blocks": [
+        { "type": "region", "settings": { "product": "Popo Glow", "area": "Glúteos" } },
+        { "type": "region", "settings": { "product": "Densy Hair", "area": "Couro cabeludo" } },
+        { "type": "region", "settings": { "product": "Lumin Up", "area": "Áreas de atrito" } },
+        { "type": "region", "settings": { "product": "Linha facial", "area": "Rosto" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
