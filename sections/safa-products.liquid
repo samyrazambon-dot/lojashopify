@@ -1,6 +1,8 @@
 {%- comment -%}
   SAFA — grade de produtos "queridinhos da comunidade": cada block escolhe um
-  produto real + um selo colorido (bestseller/novo/queridinho/viral).
+  produto real + um selo colorido (bestseller/novo/queridinho/viral). Todos os
+  cards usam recorte quadrado 1:1 com o produto centralizado via object-fit:
+  contain, para manter consistência visual entre as fotos.
 {%- endcomment -%}
 <div class="safa-products page-width" data-section-id="{{ section.id }}">
   <div class="safa-products__header">
@@ -30,7 +32,11 @@
               {{ block.settings.badge_label | escape }}
             </span>
           {%- endif -%}
-          {%- if product != blank and product.featured_image -%}
+          {%- if block.settings.image_override != blank -%}
+            <a href="{{ product.url }}">
+              <img src="{{ block.settings.image_override }}" alt="{{ product.title | default: 'Produto' | escape }}" class="safa-products__image" loading="lazy">
+            </a>
+          {%- elsif product != blank and product.featured_image -%}
             <a href="{{ product.url }}">
               {{
                 product.featured_image
@@ -113,8 +119,20 @@
     gap: 24px;
   }
   .safa-products__card { display: flex; flex-direction: column; }
-  .safa-products__media { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 1; background: #f4ece8; }
-  .safa-products__image { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .safa-products__media {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #f4ece8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12%;
+    box-sizing: border-box;
+  }
+  .safa-products__media a { display: block; width: 100%; height: 100%; }
+  .safa-products__image { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
   .safa-products__placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, #f4ece8, #e8d3e0); }
   .safa-products__badge {
     position: absolute;
@@ -180,6 +198,7 @@
       "settings": [
         { "type": "product", "id": "product", "label": "Produto" },
         { "type": "text", "id": "description", "label": "Descrição curta" },
+        { "type": "text", "id": "image_override", "label": "Imagem personalizada — URL (opcional, sobrescreve a foto do produto)" },
         { "type": "text", "id": "badge_label", "label": "Selo (texto)" },
         {
           "type": "select",
