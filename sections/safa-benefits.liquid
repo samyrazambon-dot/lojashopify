@@ -101,11 +101,11 @@
   .safa-benefits__card:nth-child(1) { background: #ff784b; }
   /* Card 2 · Hidratação profunda */
   .safa-benefits__card:nth-child(2) { background: #be9bff; }
-  /* Card 3 · Aparência de estrias atenuada */
-  .safa-benefits__card:nth-child(3) { background: #fcfaf8; }
+  /* Card 3 · Aplicação com espátula */
+  .safa-benefits__card:nth-child(3) { background: #ffb4ff; }
   /* Card 4 · Aspecto mais firme */
   .safa-benefits__card:nth-child(4) { background: #ff73d7; }
-  /* Card 5 · Textura mais uniforme */
+  /* Card 5 · Textura que absorve */
   .safa-benefits__card:nth-child(5) { background: #cdff87; }
   .safa-benefits__card:nth-child(-n+5) .safa-benefits__card-title,
   .safa-benefits__card:nth-child(-n+5) .safa-benefits__card-text {
@@ -137,15 +137,15 @@
   .safa-benefits__seal {
     display: inline-flex;
     align-items: center;
-    background: #ffffff;
-    border: 1px solid #e8d3e0;
+    background: transparent;
+    border: 1.5px solid #460a46;
     border-radius: 999px;
     padding: 8px 16px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: #2a0a2e;
+    color: #460a46;
   }
 
   .safa-benefits__cta { text-align: center; }
@@ -181,7 +181,7 @@
     { "type": "textarea", "id": "notice_text", "label": "Texto do aviso" },
     { "type": "text", "id": "button_label", "default": "Quero começar meu ritual", "label": "Botão — texto" },
     { "type": "url", "id": "button_link", "label": "Botão — link" },
-    { "type": "text", "id": "button_subtext", "default": "Frete grátis na primeira compra · Troca em até 30 dias", "label": "Texto abaixo do botão" }
+    { "type": "text", "id": "button_subtext", "default": "Frete grátis na primeira compra", "label": "Texto abaixo do botão" }
   ],
   "blocks": [
     {
@@ -207,9 +207,9 @@
       "blocks": [
         { "type": "benefit", "settings": { "title": "Sensação de aquecimento", "text": "Você sente o calor logo na aplicação. É ele que marca a região e transforma passar creme em ritual." } },
         { "type": "benefit", "settings": { "title": "Hidratação profunda", "text": "Hidrata e melhora a maciez e a elasticidade da pele, com textura que absorve sem deixar a região pegajosa." } },
-        { "type": "benefit", "settings": { "title": "Aparência de estrias atenuada", "text": "Com o uso contínuo, atenua a aparência de estrias e deixa a pele com aspecto mais uniforme." } },
+        { "type": "benefit", "settings": { "title": "Aplicação com espátula", "text": "Vem com espátula própria. Você não coloca a mão dentro do pote, o produto se conserva melhor e cada aplicação começa limpa." } },
         { "type": "benefit", "settings": { "title": "Aspecto mais firme", "text": "Proporciona sensação de firmeza e efeito tensor imediato, com aspecto mais firme após a aplicação." } },
-        { "type": "benefit", "settings": { "title": "Textura mais uniforme", "text": "Auxilia na melhora da aparência da pele com aspecto de casca de laranja, deixando a superfície visualmente mais lisa." } },
+        { "type": "benefit", "settings": { "title": "Textura que absorve", "text": "Espalha fácil e absorve rápido, sem deixar a região pegajosa. Dá para vestir a roupa logo depois da massagem." } },
         { "type": "benefit", "settings": { "title": "Feito para uma região só", "text": "Não é hidratante corporal genérico. Foi formulado para a região que passa oito horas por dia comprimida.", "highlight": true } },
         { "type": "seal", "settings": { "label": "Produto notificado ANVISA" } },
         { "type": "seal", "settings": { "label": "Vegano" } },
