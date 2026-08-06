@@ -1,10 +1,53 @@
 {%- comment -%}
-  SAFA — hero customizado: fundo rosa sólido, heading em 3 linhas alternando
-  roxo-escuro/branco-itálico, badges decorativos girando (SVG textPath),
-  mídia à direita (asset do tema > imagem do image_picker > bloco de cor,
-  em card claro via media_style = 'card').
+  SAFA — hero customizado: fundo rosa sólido à esquerda, imagem full-bleed
+  (sem card, sem padding) ocupando 100% da metade direita da seção.
 {%- endcomment -%}
 <section class="safa-hero" data-section-id="{{ section.id }}">
+  <div class="safa-hero__media">
+    {%- if section.settings.image_url != blank -%}
+      <img
+        src="{{ section.settings.image_url }}"
+        alt="{{ section.settings.heading_line1 | escape }}"
+        class="safa-hero__media-image"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {%- elsif section.settings.image_asset != blank -%}
+      <img
+        src="{{ section.settings.image_asset | asset_url }}"
+        alt="{{ section.settings.heading_line1 | escape }}"
+        class="safa-hero__media-image"
+        loading="eager"
+        fetchpriority="high"
+      >
+    {%- elsif section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 1600
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          class: 'safa-hero__media-image',
+          widths: '480, 720, 960, 1200, 1600',
+          sizes: '(min-width: 1000px) 50vw, 100vw',
+          alt: section.settings.image.alt | default: section.settings.heading_line1 | escape
+      }}
+    {%- else -%}
+      <div class="safa-hero__media-placeholder"></div>
+    {%- endif -%}
+
+    {%- if section.settings.corner_badge != blank -%}
+      <span class="safa-hero__vegan">✦ {{ section.settings.corner_badge | escape }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.card_label != blank -%}
+      <div class="safa-hero__card">
+        <span class="safa-hero__card-label">{{ section.settings.card_label | escape }}</span>
+        <strong class="safa-hero__card-title">{{ section.settings.card_title | escape }}</strong>
+      </div>
+    {%- endif -%}
+  </div>
+
   <div class="safa-hero__decor safa-hero__decor--left">
     <svg viewBox="0 0 160 160" class="safa-hero__spin">
       <defs>
@@ -61,45 +104,6 @@
         </div>
       {%- endif -%}
     </div>
-
-    <div class="safa-hero__media">
-      <div class="safa-hero__media-frame {% if section.settings.media_style == 'card' %}safa-hero__media-frame--card{% endif %}">
-        {%- if section.settings.image_asset != blank -%}
-          <img
-            src="{{ section.settings.image_asset | asset_url }}"
-            alt="{{ section.settings.heading_line1 | escape }}"
-            class="safa-hero__media-image"
-            loading="eager"
-            fetchpriority="high"
-          >
-        {%- elsif section.settings.image != blank -%}
-          {{
-            section.settings.image
-            | image_url: width: 1600
-            | image_tag:
-              loading: 'eager',
-              fetchpriority: 'high',
-              class: 'safa-hero__media-image',
-              widths: '480, 720, 960, 1200, 1600',
-              sizes: '(min-width: 1000px) 45vw, 100vw',
-              alt: section.settings.image.alt | default: section.settings.heading_line1 | escape
-          }}
-        {%- else -%}
-          <div class="safa-hero__media-placeholder"></div>
-        {%- endif -%}
-
-        {%- if section.settings.corner_badge != blank -%}
-          <span class="safa-hero__vegan">✦ {{ section.settings.corner_badge | escape }}</span>
-        {%- endif -%}
-
-        {%- if section.settings.card_label != blank -%}
-          <div class="safa-hero__card">
-            <span class="safa-hero__card-label">{{ section.settings.card_label | escape }}</span>
-            <strong class="safa-hero__card-title">{{ section.settings.card_title | escape }}</strong>
-          </div>
-        {%- endif -%}
-      </div>
-    </div>
   </div>
 
   <div class="safa-hero__decor safa-hero__decor--right">
@@ -121,17 +125,76 @@
     position: relative;
     background: #ff73d7;
     overflow: hidden;
-    padding-top: 56px;
-    padding-bottom: 56px;
+    min-height: 640px;
   }
+
+  .safa-hero__media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .safa-hero__media-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .safa-hero__media-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(150deg, #ffb6db 0%, #ff73d7 45%, #2a0a2e 100%);
+  }
+  .safa-hero__vegan {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    background: #d6f24e;
+    color: #2a0a2e;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+  .safa-hero__card {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 2;
+    background: #ffffff;
+    color: #2a0a2e;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    max-width: 220px;
+  }
+  .safa-hero__card-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ff73d7;
+    margin-bottom: 4px;
+  }
+  .safa-hero__card-title { display: block; font-size: 17px; font-weight: 800; line-height: 1.2; }
+
   .safa-hero__grid {
+    position: relative;
+    z-index: 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 48px;
-    position: relative;
-    z-index: 2;
+    padding: 56px 0;
   }
+  .safa-hero__content { min-width: 0; padding-right: 40px; }
   .safa-hero__badge {
     display: inline-flex;
     align-items: center;
@@ -192,67 +255,7 @@
   .safa-hero__proof-text { display: flex; flex-direction: column; font-size: 13px; color: #2a0a2e; font-weight: 700; }
   .safa-hero__rating { font-weight: 600; opacity: 0.85; }
 
-  .safa-hero__media { position: relative; }
-  .safa-hero__media-frame {
-    position: relative;
-    border-radius: 28px;
-    overflow: hidden;
-    aspect-ratio: 4 / 5;
-  }
-  .safa-hero__media-image { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .safa-hero__media-frame--card {
-    background: #fcfaf8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px;
-  }
-  .safa-hero__media-frame--card .safa-hero__media-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .safa-hero__media-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(150deg, #ffb6db 0%, #ff73d7 45%, #2a0a2e 100%);
-  }
-  .safa-hero__vegan {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #d6f24e;
-    color: #2a0a2e;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 8px 14px;
-    border-radius: 999px;
-  }
-  .safa-hero__card {
-    position: absolute;
-    left: 24px;
-    bottom: 24px;
-    background: #ffffff;
-    color: #2a0a2e;
-    border-radius: 16px;
-    padding: 16px 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-    max-width: 220px;
-  }
-  .safa-hero__card-label {
-    display: block;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #ff73d7;
-    margin-bottom: 4px;
-  }
-  .safa-hero__card-title { display: block; font-size: 17px; font-weight: 800; line-height: 1.2; }
-
-  .safa-hero__decor { position: absolute; z-index: 3; pointer-events: none; }
+  .safa-hero__decor { position: absolute; z-index: 4; pointer-events: none; }
   .safa-hero__decor--left { top: -20px; left: -60px; width: 140px; }
   .safa-hero__decor--right { right: -60px; bottom: -60px; width: 170px; }
   .safa-hero__spin { width: 100%; height: auto; animation: safa-spin 22s linear infinite; }
@@ -260,10 +263,21 @@
   @keyframes safa-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
   @media screen and (max-width: 1000px) {
-    .safa-hero__grid { grid-template-columns: 1fr; }
+    .safa-hero { min-height: 0; }
+    .safa-hero__grid { grid-template-columns: 1fr; padding: 40px 20px 0; }
+    .safa-hero__content { padding-right: 0; }
+    .safa-hero__buttons { flex-direction: column; }
+    .safa-hero__btn { width: 100%; justify-content: center; }
     .safa-hero__decor--left { display: none; }
     .safa-hero__decor--right { width: 120px; right: -30px; bottom: -30px; }
-    .safa-hero__media-frame { aspect-ratio: 4 / 3; }
+
+    .safa-hero__media {
+      position: relative;
+      top: auto; right: auto; bottom: auto;
+      width: 100%;
+      height: 60vh;
+      margin-top: 32px;
+    }
   }
 </style>
 
@@ -283,18 +297,9 @@
     { "type": "url", "id": "button_link_2", "label": "Botão 2 — link" },
     { "type": "text", "id": "stat_text", "label": "Prova social (vazio se não verificado)" },
     { "type": "text", "id": "rating_text", "label": "Texto de avaliação" },
+    { "type": "text", "id": "image_url", "label": "Imagem — URL completa (CDN Shopify, prioridade máxima)" },
     { "type": "image_picker", "id": "image", "label": "Imagem via Shopify Files" },
     { "type": "text", "id": "image_asset", "label": "Asset do tema (nome do arquivo)" },
-    {
-      "type": "select",
-      "id": "media_style",
-      "label": "Estilo da mídia",
-      "options": [
-        { "value": "cover", "label": "Foto de fundo (cover)" },
-        { "value": "card", "label": "Card claro — produto centralizado" }
-      ],
-      "default": "cover"
-    },
     { "type": "text", "id": "corner_badge", "default": "Vegano", "label": "Selo sobre a imagem" },
     { "type": "text", "id": "card_label", "default": "Rotina de 3 passos", "label": "Card — rótulo" },
     { "type": "text", "id": "card_title", "default": "Resultado em 14 dias", "label": "Card — título" }
