@@ -12,21 +12,34 @@
     "hero": {
       "type": "safa-hero",
       "settings": {
-        "badge_text": "Novo · Sérum Lumin Up",
-        "heading_line1": "Espalhe",
-        "heading_line2": "o que te",
-        "heading_line3": "ilumina.",
-        "text": "<p>Cosméticos e dermocosméticos que revelam o brilho único que há em cada pessoa. Beleza, cuidado pessoal e bem-estar todo dia.</p>",
-        "button_label": "Comprar bestsellers",
-        "button_link": "/collections/all",
-        "button_label_2": "Conhecer o ritual",
-        "button_link_2": "/pages/ritual",
-        "stat_text": "+15 mil clientes iluminadas",
-        "rating_text": "4.9 nas avaliações",
-        "corner_badge": "Vegano",
-        "card_label": "Rotina de 3 passos",
-        "card_title": "Resultado em 14 dias"
+        "badge_text": "Popo Glow · Creme de massagem com aquecimento",
+        "heading_line1": "Sua pele",
+        "heading_line2": "não termina",
+        "heading_line3": "no queixo.",
+        "text": "<p>A indústria especializou o rosto e generalizou todo o resto. Isso tem nome: o Efeito Espelho. O Popo Glow começa a romper com ele pela região que você passa o dia inteiro sentada em cima.</p>",
+        "button_label": "Quero o Popo Glow",
+        "button_link": "/products/safa-popo-glow-creme-de-massagem-termogenico-250g",
+        "button_label_2": "O que é o Efeito Espelho",
+        "button_link_2": "/pages/sobre",
+        "stat_text": "",
+        "rating_text": "",
+        "image": "shopify://shop_images/792e56f8c69ef1e84c7e4f9ad12f2a17.jpg",
+        "media_style": "card",
+        "corner_badge": "Sensação de aquecimento",
+        "card_label": "Ritual de 2 minutos",
+        "card_title": "Todo dia, depois do banho."
       }
+    },
+    "regioes": {
+      "type": "safa-region-band",
+      "blocks": {
+        "r1": { "type": "region", "settings": { "product": "Popo Glow", "area": "Glúteos", "link": "/products/safa-popo-glow-creme-de-massagem-termogenico-250g" } },
+        "r2": { "type": "region", "settings": { "product": "Densy Hair", "area": "Couro cabeludo", "link": "/products/safa-serum-capilar-densy-hair-30ml" } },
+        "r3": { "type": "region", "settings": { "product": "Lumin Up", "area": "Áreas de atrito", "link": "/products/safa-serum-uniformizador-lumin-up-30ml" } },
+        "r4": { "type": "region", "settings": { "product": "Linha facial", "area": "Rosto", "link": "/products/safa-tonico-facial-120ml" } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"],
+      "settings": { "heading": "Cada produto liberta uma região" }
     },
     "marquee": {
       "type": "safa-marquee",
@@ -114,5 +127,5 @@
       }
     }
   },
-  "order": ["hero", "marquee", "produtos", "ritual", "depoimentos", "newsletter"]
+  "order": ["hero", "regioes", "marquee", "produtos", "ritual", "depoimentos", "newsletter"]
 }
