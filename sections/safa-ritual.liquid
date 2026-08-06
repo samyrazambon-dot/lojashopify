@@ -5,7 +5,9 @@
 <div class="safa-ritual" data-section-id="{{ section.id }}">
   <div class="safa-ritual__grid page-width">
     <div class="safa-ritual__media">
-      {%- if section.settings.image_asset != blank -%}
+      {%- if section.settings.image_url != blank -%}
+        <img src="{{ section.settings.image_url }}" alt="{{ section.settings.heading_line1 | escape }}" class="safa-ritual__image" loading="lazy">
+      {%- elsif section.settings.image_asset != blank -%}
         <img src="{{ section.settings.image_asset | asset_url }}" alt="{{ section.settings.heading_line1 | escape }}" class="safa-ritual__image" loading="lazy">
       {%- elsif section.settings.image != blank -%}
         {{
@@ -45,7 +47,7 @@
         {%- for block in section.blocks -%}
           <div class="safa-ritual__step" {{ block.shopify_attributes }}>
             <span class="safa-ritual__number safa-ritual__number--{{ block.settings.color }}">{{ block.settings.number }}</span>
-            <div>
+            <div class="safa-ritual__step-body">
               <strong class="safa-ritual__step-title">{{ block.settings.title | escape }}</strong>
               <p class="safa-ritual__step-text">{{ block.settings.text | escape }}</p>
             </div>
@@ -57,14 +59,14 @@
 </div>
 
 <style>
-  .safa-ritual { background: #2a0a2e; padding: 80px 20px; }
+  .safa-ritual { background: #2a0a2e; padding: 80px 20px; overflow: hidden; }
   .safa-ritual__grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
     gap: 56px;
     align-items: center;
   }
-  .safa-ritual__media { position: relative; }
+  .safa-ritual__media { position: relative; min-width: 0; }
   .safa-ritual__image, .safa-ritual__placeholder {
     width: 100%;
     aspect-ratio: 4 / 5;
@@ -83,6 +85,7 @@
   }
   @keyframes safa-ritual-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+  .safa-ritual__content { min-width: 0; }
   .safa-ritual__eyebrow {
     display: block;
     color: #ff6b35;
@@ -95,11 +98,11 @@
   .safa-ritual__heading { font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; line-height: 1.02; margin: 0 0 18px; }
   .safa-ritual__heading-white { display: block; color: #ffffff; }
   .safa-ritual__heading-pink { display: block; color: #ff73d7; font-style: italic; }
-  .safa-ritual__text { color: #d8c7d4; font-size: 16px; line-height: 1.6; max-width: 480px; margin: 0 0 36px; }
+  .safa-ritual__text { color: #d8c7d4; font-size: 16px; line-height: 1.6; max-width: 480px; margin: 0 0 36px; position: relative; z-index: 1; overflow-wrap: break-word; }
   .safa-ritual__text p { margin: 0 0 12px; }
   .safa-ritual__text p:last-child { margin-bottom: 0; }
 
-  .safa-ritual__steps { display: flex; flex-direction: column; gap: 16px; }
+  .safa-ritual__steps { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
   .safa-ritual__step {
     display: flex;
     align-items: flex-start;
@@ -113,11 +116,12 @@
   .safa-ritual__number--orange { color: #ff6b35; }
   .safa-ritual__number--pink { color: #ff73d7; }
   .safa-ritual__number--purple { color: #b9a6f5; }
+  .safa-ritual__step-body { min-width: 0; overflow-wrap: break-word; }
   .safa-ritual__step-title { display: block; color: #ffffff; font-size: 17px; font-weight: 800; margin-bottom: 4px; }
   .safa-ritual__step-text { color: #d8c7d4; font-size: 14px; line-height: 1.5; margin: 0; }
 
   @media screen and (max-width: 1000px) {
-    .safa-ritual__grid { grid-template-columns: 1fr; }
+    .safa-ritual__grid { grid-template-columns: minmax(0, 1fr); }
     .safa-ritual__spin { width: 100px; left: -20px; bottom: -20px; }
   }
 </style>
@@ -127,8 +131,9 @@
   "name": "Safa · Ritual",
   "tag": "section",
   "settings": [
+    { "type": "text", "id": "image_url", "label": "Imagem — URL completa (CDN Shopify, prioridade máxima)" },
     { "type": "text", "id": "image_asset", "label": "Imagem (arquivo do tema, ex: foto.jpg)" },
-    { "type": "image_picker", "id": "image", "label": "Imagem (Shopify Files — usada só se o campo acima estiver vazio)" },
+    { "type": "image_picker", "id": "image", "label": "Imagem (Shopify Files — usada só se os campos acima estiverem vazios)" },
     { "type": "text", "id": "eyebrow", "default": "O ritual Safa", "label": "Rótulo pequeno" },
     { "type": "text", "id": "heading_line1", "default": "Três passos.", "label": "Título — linha 1" },
     { "type": "text", "id": "heading_line2", "default": "Um brilho.", "label": "Título — linha 2 (rosa)" },
