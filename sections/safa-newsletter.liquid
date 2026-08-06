@@ -1,7 +1,12 @@
 {%- comment -%}
-  SAFA — CTA "Clube do Brilho": card rosa com form de newsletter nativo (customer tag)
-  e decoração de quarto-de-círculo roxo com estrela verde no canto.
+  SAFA — CTA "Clube Safa": card rosa com form de newsletter nativo (customer tag),
+  quarto-de-círculo roxo com estrela no canto, e selo circular girando à direita
+  para preencher o espaço vazio do card.
 {%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+
 <div class="safa-news page-width" data-section-id="{{ section.id }}">
   <div class="safa-news__card">
     <div class="safa-news__decor">
@@ -38,16 +43,37 @@
           <small class="safa-news__message">Obrigado por assinar!</small>
         {%- endif -%}
       {%- endform -%}
+
+      {%- if section.settings.legal_text != blank -%}
+        <div class="safa-news__legal">{{ section.settings.legal_text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="safa-news__badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="safa-news__badge-svg">
+        <defs>
+          <path id="newsBadgeCircle-{{ section.id }}" d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0" />
+        </defs>
+        <text font-size="12.5" font-weight="800" letter-spacing="2.5" fill="#460a46">
+          <textPath href="#newsBadgeCircle-{{ section.id }}">SEJA SAFA • SEJA SAFA • SEJA SAFA • </textPath>
+        </text>
+        <text x="100" y="110" text-anchor="middle" font-size="28" fill="#460a46">★</text>
+      </svg>
     </div>
   </div>
 </div>
 
 <style>
+  .safa-news, .safa-news * { font-family: 'Manrope', sans-serif; }
   .safa-news { padding: 0 20px 72px; }
   .safa-news__card {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
     background: #ff73d7;
-    border-radius: 28px;
+    border-radius: 24px;
     padding: 56px;
     overflow: hidden;
   }
@@ -57,28 +83,28 @@
     right: 0;
     width: 160px;
     height: 160px;
-    background: #2a0a2e;
+    background: #460a46;
     border-bottom-left-radius: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
     padding: 20px;
   }
-  .safa-news__star { color: #d6f24e; font-size: 22px; }
-  .safa-news__content { max-width: 560px; position: relative; z-index: 2; }
+  .safa-news__star { color: #cdff87; font-size: 22px; }
+  .safa-news__content { max-width: 560px; position: relative; z-index: 2; flex-shrink: 0; }
   .safa-news__eyebrow {
     display: block;
-    color: #2a0a2e;
+    color: #460a46;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 14px;
   }
-  .safa-news__heading { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.05; color: #2a0a2e; margin: 0 0 16px; }
+  .safa-news__heading { font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.05; color: #460a46; margin: 0 0 16px; }
   .safa-news__heading span { display: block; }
   .safa-news__heading-italic { font-style: italic; }
-  .safa-news__text { color: #2a0a2e; font-size: 15px; line-height: 1.5; margin: 0 0 28px; opacity: 0.85; }
+  .safa-news__text { color: #460a46; font-size: 15px; line-height: 1.55; margin: 0 0 28px; opacity: 0.9; }
 
   .safa-news__form { display: flex; gap: 12px; flex-wrap: wrap; }
   .safa-news__input {
@@ -88,26 +114,50 @@
     border-radius: 999px;
     border: none;
     font-size: 14px;
+    font-family: 'Manrope', sans-serif;
     background: #ffffff;
-    color: #2a0a2e;
+    color: #460a46;
   }
+  .safa-news__input::placeholder { color: #8a7a86; }
   .safa-news__submit {
     padding: 16px 30px;
     border-radius: 999px;
     border: none;
-    background: #2a0a2e;
+    background: #460a46;
     color: #ffffff;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     cursor: pointer;
+    font-family: 'Manrope', sans-serif;
   }
-  .safa-news__message { display: block; margin-top: 10px; color: #2a0a2e; font-weight: 700; }
+  .safa-news__message { display: block; margin-top: 10px; color: #460a46; font-weight: 700; }
+
+  .safa-news__legal { margin-top: 16px; font-size: 12px; line-height: 1.5; color: #460a46; opacity: 0.7; }
+  .safa-news__legal a { color: #460a46; text-decoration: underline; }
+
+  .safa-news__badge {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 190px;
+    height: 190px;
+    animation: safa-news-spin 26s linear infinite;
+  }
+  .safa-news__badge-svg { width: 100%; height: 100%; }
+  @keyframes safa-news-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  @media screen and (max-width: 900px) {
+    .safa-news__badge { display: none; }
+    .safa-news__card { justify-content: center; }
+  }
 
   @media screen and (max-width: 700px) {
     .safa-news__card { padding: 36px 24px; }
     .safa-news__decor { width: 100px; height: 100px; }
+    .safa-news__form { flex-direction: column; }
+    .safa-news__input, .safa-news__submit { width: 100%; }
   }
 </style>
 
@@ -116,12 +166,13 @@
   "name": "Safa · Newsletter",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Clube do brilho", "label": "Rótulo pequeno" },
-    { "type": "text", "id": "heading_line1", "default": "10% off na sua", "label": "Título — linha 1" },
+    { "type": "text", "id": "eyebrow", "default": "Clube Safa", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Frete grátis na", "label": "Título — linha 1" },
     { "type": "text", "id": "heading_line2", "default": "primeira compra.", "label": "Título — linha 2 (itálico)" },
-    { "type": "text", "id": "text", "default": "Entre pro Clube Safa e receba lançamentos, dicas de ritual e mimos exclusivos.", "label": "Texto" },
+    { "type": "textarea", "id": "text", "default": "Sem valor mínimo. Entre para o Clube Safa e receba o desafio de 21 dias — o método completo do ritual, direto no seu e-mail.", "label": "Texto" },
     { "type": "text", "id": "email_placeholder", "default": "Seu melhor e-mail", "label": "Placeholder do e-mail" },
-    { "type": "text", "id": "button_label", "default": "Quero brilhar", "label": "Botão — texto" }
+    { "type": "text", "id": "button_label", "default": "Quero brilhar", "label": "Botão — texto" },
+    { "type": "richtext", "id": "legal_text", "default": "<p>Ao entrar você aceita receber e-mails da Safa. Cancele quando quiser. Consulte nossa <a href=\"/policies/privacy-policy\">Política de Privacidade</a>.</p>", "label": "Texto legal (abaixo do formulário)" }
   ],
   "presets": [{ "name": "Safa · Newsletter" }]
 }
