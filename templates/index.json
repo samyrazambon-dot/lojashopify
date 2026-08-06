@@ -133,7 +133,7 @@
         "p2": {
           "type": "product",
           "settings": {
-            "product": "safa-tonico-facial-120ml",
+            "product": "tonico-facial-d-pantenol",
             "description": "Hidratante com D-Pantenol · 120ml",
             "badge_label": "Novo",
             "badge_color": "green"
@@ -275,7 +275,7 @@
         "d1": {
           "type": "product",
           "settings": {
-            "product": "safa-tonico-facial-120ml",
+            "product": "tonico-facial-d-pantenol",
             "description": "Hidratante com D-Pantenol · 120ml"
           }
         },
