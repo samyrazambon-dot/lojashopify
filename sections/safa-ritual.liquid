@@ -1,11 +1,20 @@
 {%- comment -%}
-  SAFA — "Três passos. Um brilho." fundo roxo escuro, imagem à esquerda com
-  badge circular girando, 3 steps numerados à direita.
+  SAFA — ritual/gesto: fundo roxo escuro, imagem à esquerda (asset do tema >
+  image_picker > bloco de cor) com badge circular girando com respiro (fora
+  da imagem, com sombra), 3 cards à direita. Texto usa <div>, não <p>, porque
+  o richtext do Shopify já gera <p> interno — aninhar <p> quebrava o layout.
 {%- endcomment -%}
 <div class="safa-ritual" data-section-id="{{ section.id }}">
   <div class="safa-ritual__grid page-width">
     <div class="safa-ritual__media">
-      {%- if section.settings.image != blank -%}
+      {%- if section.settings.image_asset != blank -%}
+        <img
+          src="{{ section.settings.image_asset | asset_url }}"
+          alt="{{ section.settings.heading_line1 | escape }}"
+          class="safa-ritual__image"
+          loading="lazy"
+        >
+      {%- elsif section.settings.image != blank -%}
         {{
           section.settings.image
           | image_url: width: 1200
@@ -36,7 +45,7 @@
         <span class="safa-ritual__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
       </h2>
       {%- if section.settings.text != blank -%}
-        <p class="safa-ritual__text">{{ section.settings.text }}</p>
+        <div class="safa-ritual__text">{{ section.settings.text }}</div>
       {%- endif -%}
 
       <div class="safa-ritual__steps">
@@ -74,8 +83,9 @@
   .safa-ritual__spin {
     position: absolute;
     width: 130px;
-    left: -30px;
-    bottom: -30px;
+    left: -52px;
+    bottom: -52px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
     animation: safa-ritual-spin 24s linear infinite;
   }
   @keyframes safa-ritual-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -93,6 +103,8 @@
   .safa-ritual__heading-white { display: block; color: #ffffff; }
   .safa-ritual__heading-pink { display: block; color: #ff73d7; font-style: italic; }
   .safa-ritual__text { color: #d8c7d4; font-size: 16px; line-height: 1.6; max-width: 480px; margin: 0 0 36px; }
+  .safa-ritual__text p { margin: 0 0 12px; }
+  .safa-ritual__text p:last-child { margin-bottom: 0; }
 
   .safa-ritual__steps { display: flex; flex-direction: column; gap: 16px; }
   .safa-ritual__step {
@@ -113,7 +125,7 @@
 
   @media screen and (max-width: 1000px) {
     .safa-ritual__grid { grid-template-columns: 1fr; }
-    .safa-ritual__spin { width: 100px; }
+    .safa-ritual__spin { width: 100px; left: -30px; bottom: -30px; }
   }
 </style>
 
@@ -122,7 +134,8 @@
   "name": "Safa · Ritual",
   "tag": "section",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Imagem (opcional — sem imagem usa bloco de cor)" },
+    { "type": "image_picker", "id": "image", "label": "Imagem via Shopify Files" },
+    { "type": "text", "id": "image_asset", "label": "Asset do tema (nome do arquivo)" },
     { "type": "text", "id": "eyebrow", "default": "O ritual Safa", "label": "Rótulo pequeno" },
     { "type": "text", "id": "heading_line1", "default": "Três passos.", "label": "Título — linha 1" },
     { "type": "text", "id": "heading_line2", "default": "Um brilho.", "label": "Título — linha 2 (rosa)" },
@@ -135,7 +148,7 @@
       "settings": [
         { "type": "text", "id": "number", "default": "01", "label": "Número" },
         { "type": "text", "id": "title", "default": "Limpe", "label": "Título" },
-        { "type": "text", "id": "text", "default": "Descrição do passo.", "label": "Descrição" },
+        { "type": "textarea", "id": "text", "default": "Descrição do passo.", "label": "Descrição" },
         {
           "type": "select",
           "id": "color",
