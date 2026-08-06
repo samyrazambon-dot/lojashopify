@@ -142,7 +142,7 @@
         "p3": {
           "type": "product",
           "settings": {
-            "product": "safa-serum-facial-5-em-1-multi-glow-30ml",
+            "product": "serum-facial-5-em-1-multi-glow",
             "description": "Sérum facial iluminador · 30ml",
             "badge_label": "Queridinho",
             "badge_color": "orange"
@@ -282,7 +282,7 @@
         "d2": {
           "type": "product",
           "settings": {
-            "product": "safa-serum-facial-5-em-1-multi-glow-30ml",
+            "product": "serum-facial-5-em-1-multi-glow",
             "description": "Sérum facial iluminador · 30ml"
           }
         }
