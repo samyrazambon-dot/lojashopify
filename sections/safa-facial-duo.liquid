@@ -1,0 +1,127 @@
+{%- comment -%}
+  SAFA — "também pro rosto": Tônico Facial + Multi Glow apresentados sempre
+  juntos, como método (cross-sell), nunca como produto isolado/carro-chefe.
+{%- endcomment -%}
+<div class="safa-duo page-width" data-section-id="{{ section.id }}">
+  <div class="safa-duo__header">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="safa-duo__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+    {%- endif -%}
+    <h2 class="safa-duo__heading">
+      <span class="safa-duo__heading-dark">{{ section.settings.heading_line1 | escape }}</span>
+      <span class="safa-duo__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
+    </h2>
+    {%- if section.settings.text != blank -%}
+      <p class="safa-duo__text">{{ section.settings.text | escape }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="safa-duo__grid">
+    {%- for block in section.blocks -%}
+      {%- assign product = block.settings.product -%}
+      <div class="safa-duo__card" {{ block.shopify_attributes }}>
+        <div class="safa-duo__media">
+          {%- if product != blank and product.featured_image -%}
+            <a href="{{ product.url }}">
+              {{
+                product.featured_image
+                | image_url: width: 500
+                | image_tag: loading: 'lazy', class: 'safa-duo__image', widths: '250, 350, 500', alt: product.title | escape
+              }}
+            </a>
+          {%- else -%}
+            <div class="safa-duo__placeholder"></div>
+          {%- endif -%}
+        </div>
+        <div class="safa-duo__info">
+          <h3 class="safa-duo__title">{{ product.title | default: 'Produto' | escape }}</h3>
+          {%- if block.settings.description != blank -%}
+            <p class="safa-duo__desc">{{ block.settings.description | escape }}</p>
+          {%- endif -%}
+          {%- if product != blank -%}
+            <span class="safa-duo__price">{{ product.price | money }}</span>
+            {%- form 'product', product -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <button type="submit" class="safa-duo__add">Adicionar à sacola</button>
+            {%- endform -%}
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .safa-duo { padding: 64px 20px; }
+  .safa-duo__header { text-align: center; max-width: 560px; margin: 0 auto 40px; }
+  .safa-duo__eyebrow {
+    display: block;
+    color: #ff73d7;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .safa-duo__heading { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.05; margin: 0 0 14px; }
+  .safa-duo__heading-dark { display: block; color: #2a0a2e; }
+  .safa-duo__heading-pink { display: block; color: #ff73d7; font-style: italic; }
+  .safa-duo__text { color: #6b5866; font-size: 15px; line-height: 1.6; margin: 0; }
+
+  .safa-duo__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .safa-duo__card { display: flex; flex-direction: column; }
+  .safa-duo__media { border-radius: 20px; overflow: hidden; aspect-ratio: 1; background: #f4ece8; }
+  .safa-duo__image { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .safa-duo__placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, #f4ece8, #e8d3e0); }
+  .safa-duo__info { padding-top: 14px; }
+  .safa-duo__title { font-size: 16px; font-weight: 800; color: #2a0a2e; margin: 0 0 4px; }
+  .safa-duo__desc { font-size: 13px; color: #6b5866; margin: 0 0 8px; line-height: 1.4; }
+  .safa-duo__price { display: block; font-size: 16px; font-weight: 800; color: #ff73d7; margin-bottom: 12px; }
+  .safa-duo__add {
+    width: 100%;
+    padding: 12px;
+    background: #2a0a2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 560px) {
+    .safa-duo__grid { grid-template-columns: 1fr; max-width: 300px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · Dupla facial",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Também pro rosto", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Tônico Facial", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "& Multi Glow.", "label": "Título — linha 2 (rosa)" },
+    { "type": "text", "id": "text", "default": "Preparo e luminosidade andam juntos. Um não substitui o outro — por isso a Safa recomenda os dois sempre em dupla.", "label": "Texto" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produto",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Produto" },
+        { "type": "text", "id": "description", "label": "Descrição curta" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Safa · Dupla facial" }]
+}
+{% endschema %}
