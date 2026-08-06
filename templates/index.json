@@ -135,9 +135,9 @@
       "blocks": {
         "b1": { "type": "benefit", "settings": { "title": "Sensação de aquecimento", "text": "Você sente o calor logo na aplicação. É ele que marca a região e transforma passar creme em ritual — e é por isso que você lembra de repetir amanhã." } },
         "b2": { "type": "benefit", "settings": { "title": "Hidratação profunda", "text": "Hidrata e melhora a maciez e a elasticidade da pele, com textura que absorve sem deixar a região pegajosa." } },
-        "b3": { "type": "benefit", "settings": { "title": "Aparência de estrias atenuada", "text": "Com o uso contínuo, atenua a aparência de estrias e deixa a pele com aspecto mais uniforme." } },
+        "b3": { "type": "benefit", "settings": { "title": "Aplicação com espátula", "text": "Vem com espátula própria. Você não coloca a mão dentro do pote, o produto se conserva melhor e cada aplicação começa limpa." } },
         "b4": { "type": "benefit", "settings": { "title": "Aspecto mais firme", "text": "Proporciona sensação de firmeza e efeito tensor imediato, com aspecto mais firme após a aplicação." } },
-        "b5": { "type": "benefit", "settings": { "title": "Textura mais uniforme", "text": "Auxilia na melhora da aparência da pele com aspecto de casca de laranja, deixando a superfície visualmente mais lisa." } },
+        "b5": { "type": "benefit", "settings": { "title": "Textura que absorve", "text": "Espalha fácil e absorve rápido, sem deixar a região pegajosa. Dá para vestir a roupa logo depois da massagem." } },
         "b6": { "type": "benefit", "settings": { "title": "Feito para uma região só", "text": "Não é hidratante corporal genérico. Foi formulado para a região que passa oito horas por dia comprimida — e é por isso que ele tem gesto, calor e ritual próprios.", "highlight": true } },
         "s1": { "type": "seal", "settings": { "label": "Produto notificado ANVISA" } },
         "s2": { "type": "seal", "settings": { "label": "Vegano" } },
