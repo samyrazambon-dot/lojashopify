@@ -89,17 +89,17 @@
     "ritual": {
       "type": "safa-ritual",
       "blocks": {
-        "s1": { "type": "step", "settings": { "number": "01", "title": "O calor", "text": "Aplique depois do banho, com a pele limpa. A sensação de aquecimento marca a região — é assim que você sente onde está cuidando, e é por isso que você não esquece de passar.", "color": "orange" } },
-        "s2": { "type": "step", "settings": { "number": "02", "title": "A massagem", "text": "Retire com a espátula e espalhe com as mãos, em movimentos circulares, sem pressa. O gesto é metade do produto: é ele que trabalha a região de verdade.", "color": "pink" } },
-        "s3": { "type": "step", "settings": { "number": "03", "title": "A constância", "text": "Todo dia, sempre no mesmo horário. Pele responde a repetição, não a intensidade. Em 21 dias deixa de ser tarefa e vira rotina.", "color": "purple" } }
+        "s1": { "type": "step", "settings": { "number": "01", "title": "O calor", "text": "Você sente o calor subir logo na aplicação. É ele que marca a região e transforma passar creme em ritual consciente — e é por isso que você lembra de repetir no dia seguinte.", "color": "orange" } },
+        "s2": { "type": "step", "settings": { "number": "02", "title": "A massagem", "text": "Retire com a espátula, espalhe com as mãos e massageie em movimentos circulares até absorver. Passar creme leva três segundos. Massagear leva um minuto — e é exatamente aí que está a diferença.", "color": "pink" } },
+        "s3": { "type": "step", "settings": { "number": "03", "title": "A constância", "text": "Todo dia, até duas vezes: antes do treino e depois do banho. Pele adormecida não acorda com intensidade, acorda com repetição. Em 21 dias deixa de ser tarefa e vira rotina.", "color": "purple" } }
       },
       "block_order": ["s1", "s2", "s3"],
       "settings": {
-        "image_asset": "popo-glow-ritual.jpg",
+        "image_asset": "popo-glow-ritual-2.jpg",
         "eyebrow": "O ritual · Popo Glow",
         "heading_line1": "Três passos.",
         "heading_line2": "Dois minutos.",
-        "text": "<p>Você passa o dia sentada em cima da única parte do corpo que quer melhorar.</p><p>O ritual do Popo Glow leva dois minutos e cabe depois do banho.</p>"
+        "text": "<p>A indústria te deu sete produtos para o rosto e nenhum para a região que fica comprimida oito horas por dia. O Popo Glow é o primeiro ritual dela — e cabe antes do treino ou depois do banho.</p>"
       }
     },
     "depoimentos": {
