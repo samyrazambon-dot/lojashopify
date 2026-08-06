@@ -1,0 +1,116 @@
+{%- comment -%}
+  SAFA — FAQ em acordeão (accessible <details>/<summary>, sem JS).
+{%- endcomment -%}
+<div class="safa-faq page-width" data-section-id="{{ section.id }}">
+  <div class="safa-faq__header">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="safa-faq__eyebrow">✦ {{ section.settings.eyebrow | escape }}</span>
+    {%- endif -%}
+    <h2 class="safa-faq__heading">
+      <span class="safa-faq__heading-dark">{{ section.settings.heading_line1 | escape }}</span>
+      <span class="safa-faq__heading-pink">{{ section.settings.heading_line2 | escape }}</span>
+    </h2>
+  </div>
+
+  <div class="safa-faq__list">
+    {%- for block in section.blocks -%}
+      <details class="safa-faq__item" {{ block.shopify_attributes }}>
+        <summary class="safa-faq__question">
+          <span>{{ block.settings.question | escape }}</span>
+          <span class="safa-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="safa-faq__answer">{{ block.settings.answer }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .safa-faq { padding: 72px 20px; max-width: 760px; margin: 0 auto; }
+  .safa-faq__header { text-align: center; margin: 0 auto 40px; }
+  .safa-faq__eyebrow {
+    display: block;
+    color: #ff73d7;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .safa-faq__heading { font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1.08; margin: 0; }
+  .safa-faq__heading-dark { display: block; color: #2a0a2e; }
+  .safa-faq__heading-pink { display: block; color: #ff73d7; font-style: italic; }
+
+  .safa-faq__list { display: flex; flex-direction: column; gap: 12px; }
+  .safa-faq__item {
+    background: #fdf6fa;
+    border: 1px solid #f4dcee;
+    border-radius: 16px;
+    padding: 6px 22px;
+  }
+  .safa-faq__item[open] { background: #ffffff; border-color: #ff73d7; }
+  .safa-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #2a0a2e;
+    cursor: pointer;
+    list-style: none;
+  }
+  .safa-faq__question::-webkit-details-marker { display: none; }
+  .safa-faq__icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #2a0a2e;
+    position: relative;
+  }
+  .safa-faq__icon::before, .safa-faq__icon::after {
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .safa-faq__icon::before { width: 10px; height: 2px; }
+  .safa-faq__icon::after { width: 2px; height: 10px; transition: transform 0.2s; }
+  .safa-faq__item[open] .safa-faq__icon::after { transform: translate(-50%, -50%) rotate(90deg) scaleY(0); }
+  .safa-faq__answer { color: #6b5866; font-size: 14px; line-height: 1.65; padding: 0 0 20px; }
+  .safa-faq__answer p { margin: 0 0 12px; }
+  .safa-faq__answer p:last-child { margin-bottom: 0; }
+</style>
+
+{% schema %}
+{
+  "name": "Safa · FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Dúvidas", "label": "Rótulo pequeno" },
+    { "type": "text", "id": "heading_line1", "default": "Perguntas", "label": "Título — linha 1" },
+    { "type": "text", "id": "heading_line2", "default": "frequentes.", "label": "Título — linha 2 (rosa)" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Pergunta",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pergunta" },
+        { "type": "richtext", "id": "answer", "label": "Resposta" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safa · FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Em quanto tempo eu sinto diferença?" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
