@@ -1,8 +1,8 @@
 {%- comment -%}
   SAFA — hero customizado: fundo rosa sólido, heading em 3 linhas alternando
   roxo-escuro/branco-itálico, badges decorativos girando (SVG textPath),
-  mídia à direita (foto opcional, com fallback em bloco de cor, ou card
-  claro com o frasco centralizado via media_style = 'card').
+  mídia à direita (asset do tema > imagem do image_picker > bloco de cor,
+  em card claro via media_style = 'card').
 {%- endcomment -%}
 <section class="safa-hero" data-section-id="{{ section.id }}">
   <div class="safa-hero__decor safa-hero__decor--left">
@@ -64,7 +64,15 @@
 
     <div class="safa-hero__media">
       <div class="safa-hero__media-frame {% if section.settings.media_style == 'card' %}safa-hero__media-frame--card{% endif %}">
-        {%- if section.settings.image != blank -%}
+        {%- if section.settings.image_asset != blank -%}
+          <img
+            src="{{ section.settings.image_asset | asset_url }}"
+            alt="{{ section.settings.heading_line1 | escape }}"
+            class="safa-hero__media-image"
+            loading="eager"
+            fetchpriority="high"
+          >
+        {%- elsif section.settings.image != blank -%}
           {{
             section.settings.image
             | image_url: width: 1600
@@ -273,9 +281,10 @@
     { "type": "url", "id": "button_link", "label": "Botão 1 — link" },
     { "type": "text", "id": "button_label_2", "default": "Conhecer o ritual", "label": "Botão 2 — texto" },
     { "type": "url", "id": "button_link_2", "label": "Botão 2 — link" },
-    { "type": "text", "id": "stat_text", "label": "Texto de prova social (deixe vazio se não for verificado)" },
+    { "type": "text", "id": "stat_text", "label": "Prova social (vazio se não verificado)" },
     { "type": "text", "id": "rating_text", "label": "Texto de avaliação" },
-    { "type": "image_picker", "id": "image", "label": "Imagem (opcional — sem imagem usa bloco de cor)" },
+    { "type": "image_picker", "id": "image", "label": "Imagem via Shopify Files" },
+    { "type": "text", "id": "image_asset", "label": "Asset do tema (nome do arquivo)" },
     {
       "type": "select",
       "id": "media_style",
