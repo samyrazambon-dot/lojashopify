@@ -32,24 +32,90 @@
     "regioes": {
       "type": "safa-region-band",
       "blocks": {
-        "r1": { "type": "region", "settings": { "product": "Popo Glow", "area": "Glúteos", "link": "/products/safa-popo-glow-creme-de-massagem-termogenico-250g" } },
-        "r2": { "type": "region", "settings": { "product": "Densy Hair", "area": "Couro cabeludo", "link": "/products/safa-serum-capilar-densy-hair-30ml" } },
-        "r3": { "type": "region", "settings": { "product": "Lumin Up", "area": "Áreas de atrito", "link": "/products/safa-serum-uniformizador-lumin-up-30ml" } },
-        "r4": { "type": "region", "settings": { "product": "Linha facial", "area": "Rosto", "link": "/products/safa-tonico-facial-120ml" } }
+        "r1": {
+          "type": "region",
+          "settings": {
+            "product": "Popo Glow",
+            "area": "Glúteos",
+            "link": "/products/safa-popo-glow-creme-de-massagem-termogenico-250g"
+          }
+        },
+        "r2": {
+          "type": "region",
+          "settings": {
+            "product": "Densy Hair",
+            "area": "Couro cabeludo",
+            "link": "/products/safa-serum-capilar-densy-hair-30ml"
+          }
+        },
+        "r3": {
+          "type": "region",
+          "settings": {
+            "product": "Lumin Up",
+            "area": "Áreas de atrito",
+            "link": "/products/safa-serum-uniformizador-lumin-up-30ml"
+          }
+        },
+        "r4": {
+          "type": "region",
+          "settings": {
+            "product": "Linha facial",
+            "area": "Rosto",
+            "link": "/products/safa-tonico-facial-120ml"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3", "r4"],
-      "settings": { "heading": "Cada produto liberta uma região" }
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
+      "settings": {
+        "heading": "Cada produto liberta uma região"
+      }
     },
     "marquee": {
       "type": "safa-marquee",
       "blocks": {
-        "i1": { "type": "item", "settings": { "text": "Safa tem brilho próprio" } },
-        "i2": { "type": "item", "settings": { "text": "Beleza, cuidado & bem-estar todo dia" } },
-        "i3": { "type": "item", "settings": { "text": "Espalhe o que te ilumina" } },
-        "i4": { "type": "item", "settings": { "text": "Seja Safa" } },
-        "i5": { "type": "item", "settings": { "text": "Quem é Safa tem brilho próprio" } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "text": "Safa tem brilho próprio"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "text": "Beleza, cuidado & bem-estar todo dia"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "text": "Espalhe o que te ilumina"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "text": "Seja Safa"
+          }
+        },
+        "i5": {
+          "type": "item",
+          "settings": {
+            "text": "Quem é Safa tem brilho próprio"
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4", "i5"],
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5"
+      ],
       "settings": {}
     },
     "produtos": {
@@ -57,26 +123,58 @@
       "blocks": {
         "p1": {
           "type": "product",
-          "settings": { "product": "safa-serum-uniformizador-lumin-up-30ml", "description": "Uniformizador — axilas, virilha & joelhos · 30ml", "badge_label": "Bestseller", "badge_color": "pink" }
+          "settings": {
+            "product": "safa-serum-uniformizador-lumin-up-30ml",
+            "description": "Uniformizador — axilas, virilha & joelhos · 30ml",
+            "badge_label": "Bestseller",
+            "badge_color": "pink"
+          }
         },
         "p2": {
           "type": "product",
-          "settings": { "product": "safa-tonico-facial-120ml", "description": "Hidratante com D-Pantenol · 120ml", "badge_label": "Novo", "badge_color": "green" }
+          "settings": {
+            "product": "safa-tonico-facial-120ml",
+            "description": "Hidratante com D-Pantenol · 120ml",
+            "badge_label": "Novo",
+            "badge_color": "green"
+          }
         },
         "p3": {
           "type": "product",
-          "settings": { "product": "safa-serum-facial-5-em-1-multi-glow-30ml", "description": "Sérum facial iluminador · 30ml", "badge_label": "Queridinho", "badge_color": "orange" }
+          "settings": {
+            "product": "safa-serum-facial-5-em-1-multi-glow-30ml",
+            "description": "Sérum facial iluminador · 30ml",
+            "badge_label": "Queridinho",
+            "badge_color": "orange"
+          }
         },
         "p4": {
           "type": "product",
-          "settings": { "product": "safa-popo-glow-creme-de-massagem-termogenico-250g", "description": "Creme de massagem termogênico · 250g", "badge_label": "Viral", "badge_color": "purple", "image_override": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-product-original.jpg?v=1786033485" }
+          "settings": {
+            "product": "popo-glow-creme-para-bumbum",
+            "description": "Creme de massagem termogênico · 250g",
+            "image_override": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-product-original.jpg?v=1786033485",
+            "badge_label": "Viral",
+            "badge_color": "purple"
+          }
         },
         "p5": {
           "type": "product",
-          "settings": { "product": "safa-serum-capilar-densy-hair-30ml", "description": "Sérum capilar fortalecedor · 30ml", "badge_label": "", "badge_color": "pink" }
+          "settings": {
+            "product": "safa-serum-capilar-densy-hair-30ml",
+            "description": "Sérum capilar fortalecedor · 30ml",
+            "badge_label": "",
+            "badge_color": "pink"
+          }
         }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
       "settings": {
         "eyebrow": "A coleção",
         "heading_line1": "Os queridinhos",
@@ -88,11 +186,39 @@
     "ritual": {
       "type": "safa-ritual",
       "blocks": {
-        "s1": { "type": "step", "settings": { "number": "01", "title": "O calor", "text": "Você sente o calor subir logo na aplicação. É ele que marca a região e transforma passar creme em ritual consciente — e é por isso que você lembra de repetir no dia seguinte.", "color": "orange" } },
-        "s2": { "type": "step", "settings": { "number": "02", "title": "A massagem", "text": "Retire com a espátula, espalhe com as mãos e massageie em movimentos circulares até absorver. Passar creme leva três segundos. Massagear leva um minuto — e é exatamente aí que está a diferença.", "color": "pink" } },
-        "s3": { "type": "step", "settings": { "number": "03", "title": "A constância", "text": "Todo dia, até duas vezes: antes do treino e depois do banho. Pele adormecida não acorda com intensidade, acorda com repetição. Em 21 dias deixa de ser tarefa e vira rotina.", "color": "purple" } }
+        "s1": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "O calor",
+            "text": "Você sente o calor subir logo na aplicação. É ele que marca a região e transforma passar creme em ritual consciente — e é por isso que você lembra de repetir no dia seguinte.",
+            "color": "orange"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "A massagem",
+            "text": "Retire com a espátula, espalhe com as mãos e massageie em movimentos circulares até absorver. Passar creme leva três segundos. Massagear leva um minuto — e é exatamente aí que está a diferença.",
+            "color": "pink"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "A constância",
+            "text": "Todo dia, até duas vezes: antes do treino e depois do banho. Pele adormecida não acorda com intensidade, acorda com repetição. Em 21 dias deixa de ser tarefa e vira rotina.",
+            "color": "purple"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
       "settings": {
         "image_url": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-ritual-original.jpg?v=1786033485",
         "eyebrow": "O ritual · Popo Glow",
@@ -104,11 +230,39 @@
     "depoimentos": {
       "type": "safa-testimonials",
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "quote": "Uso o Lumin Up há 3 semanas e a pele da virilha ficou uniforme igual eu queria. Virei fã.", "name": "Marina G.", "handle": "@mari.g", "color": "green" } },
-        "t2": { "type": "testimonial", "settings": { "quote": "O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.", "name": "Beatriz S.", "handle": "@beasan", "color": "purple" } },
-        "t3": { "type": "testimonial", "settings": { "quote": "Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.", "name": "Camila R.", "handle": "@cami.r", "color": "pink" } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Uso o Lumin Up há 3 semanas e a pele da virilha ficou uniforme igual eu queria. Virei fã.",
+            "name": "Marina G.",
+            "handle": "@mari.g",
+            "color": "green"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "O Tônico Facial refresca demais e o cheiro é o melhor do mundo. Não largo mais.",
+            "name": "Beatriz S.",
+            "handle": "@beasan",
+            "color": "purple"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Popo Glow é viciante! Textura, cheiro, resultado. Já tô no segundo pote.",
+            "name": "Camila R.",
+            "handle": "@cami.r",
+            "color": "pink"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
       "settings": {
         "eyebrow": "#usesafa",
         "heading_line1": "Quem é Safa tem",
@@ -118,10 +272,25 @@
     "faciallinha": {
       "type": "safa-facial-duo",
       "blocks": {
-        "d1": { "type": "product", "settings": { "product": "safa-tonico-facial-120ml", "description": "Hidratante com D-Pantenol · 120ml" } },
-        "d2": { "type": "product", "settings": { "product": "safa-serum-facial-5-em-1-multi-glow-30ml", "description": "Sérum facial iluminador · 30ml" } }
+        "d1": {
+          "type": "product",
+          "settings": {
+            "product": "safa-tonico-facial-120ml",
+            "description": "Hidratante com D-Pantenol · 120ml"
+          }
+        },
+        "d2": {
+          "type": "product",
+          "settings": {
+            "product": "safa-serum-facial-5-em-1-multi-glow-30ml",
+            "description": "Sérum facial iluminador · 30ml"
+          }
+        }
       },
-      "block_order": ["d1", "d2"],
+      "block_order": [
+        "d1",
+        "d2"
+      ],
       "settings": {
         "eyebrow": "Também pro rosto",
         "heading_line1": "Tônico Facial",
@@ -132,17 +301,79 @@
     "beneficios": {
       "type": "safa-benefits",
       "blocks": {
-        "b1": { "type": "benefit", "settings": { "title": "Sensação de aquecimento", "text": "Você sente o calor logo na aplicação. É ele que marca a região e transforma passar creme em ritual — e é por isso que você lembra de repetir amanhã." } },
-        "b2": { "type": "benefit", "settings": { "title": "Hidratação profunda", "text": "Hidrata e melhora a maciez e a elasticidade da pele, com textura que absorve sem deixar a região pegajosa." } },
-        "b3": { "type": "benefit", "settings": { "title": "Aplicação com espátula", "text": "Vem com espátula própria. Você não coloca a mão dentro do pote, o produto se conserva melhor e cada aplicação começa limpa." } },
-        "b4": { "type": "benefit", "settings": { "title": "Aspecto mais firme", "text": "Proporciona sensação de firmeza e efeito tensor imediato, com aspecto mais firme após a aplicação." } },
-        "b5": { "type": "benefit", "settings": { "title": "Textura que absorve", "text": "Espalha fácil e absorve rápido, sem deixar a região pegajosa. Dá para vestir a roupa logo depois da massagem." } },
-        "b6": { "type": "benefit", "settings": { "title": "Feito para uma região só", "text": "Não é hidratante corporal genérico. Foi formulado para a região que passa oito horas por dia comprimida — e é por isso que ele tem gesto, calor e ritual próprios.", "highlight": true } },
-        "s1": { "type": "seal", "settings": { "label": "Produto notificado ANVISA" } },
-        "s2": { "type": "seal", "settings": { "label": "Vegano" } },
-        "s3": { "type": "seal", "settings": { "label": "Não testado em animais" } }
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "title": "Sensação de aquecimento",
+            "text": "Você sente o calor logo na aplicação. É ele que marca a região e transforma passar creme em ritual — e é por isso que você lembra de repetir amanhã."
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "title": "Hidratação profunda",
+            "text": "Hidrata e melhora a maciez e a elasticidade da pele, com textura que absorve sem deixar a região pegajosa."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "title": "Aplicação com espátula",
+            "text": "Vem com espátula própria. Você não coloca a mão dentro do pote, o produto se conserva melhor e cada aplicação começa limpa."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "title": "Aspecto mais firme",
+            "text": "Proporciona sensação de firmeza e efeito tensor imediato, com aspecto mais firme após a aplicação."
+          }
+        },
+        "b5": {
+          "type": "benefit",
+          "settings": {
+            "title": "Textura que absorve",
+            "text": "Espalha fácil e absorve rápido, sem deixar a região pegajosa. Dá para vestir a roupa logo depois da massagem."
+          }
+        },
+        "b6": {
+          "type": "benefit",
+          "settings": {
+            "title": "Feito para uma região só",
+            "text": "Não é hidratante corporal genérico. Foi formulado para a região que passa oito horas por dia comprimida — e é por isso que ele tem gesto, calor e ritual próprios.",
+            "highlight": true
+          }
+        },
+        "s1": {
+          "type": "seal",
+          "settings": {
+            "label": "Produto notificado ANVISA"
+          }
+        },
+        "s2": {
+          "type": "seal",
+          "settings": {
+            "label": "Vegano"
+          }
+        },
+        "s3": {
+          "type": "seal",
+          "settings": {
+            "label": "Não testado em animais"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6", "s1", "s2", "s3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "s1",
+        "s2",
+        "s3"
+      ],
       "settings": {
         "image_url": "https://cdn.shopify.com/s/files/1/0837/4943/7655/files/popo-glow-benefits-original.jpg?v=1786033485",
         "eyebrow": "Popo Glow",
@@ -158,18 +389,89 @@
     "faq": {
       "type": "safa-faq",
       "blocks": {
-        "q1": { "type": "faq", "settings": { "question": "Em quanto tempo eu sinto diferença?", "answer": "<p>A sensação de aquecimento você sente já na primeira aplicação — é imediata. Já o aspecto da pele responde a constância, não a intensidade: por isso o ritual do Popo Glow é de 21 dias, com aplicação diária.</p>" } },
-        "q2": { "type": "faq", "settings": { "question": "O que o Popo Glow faz na pele?", "answer": "<p>Três coisas, e elas trabalham juntas.</p><p><strong>Auxilia na sustentação da pele.</strong> A região ganha sensação de firmeza e efeito tensor imediato — a pele fica com aspecto mais firme logo após a aplicação.</p><p><strong>Auxilia na uniformização da textura.</strong> A superfície fica com aspecto mais liso e regular, inclusive onde existe aspecto de casca de laranja.</p><p><strong>Fórmula termogênica corporal.</strong> É ela que cria a sensação de aquecimento. O calor faz você sentir exatamente onde está aplicando — e é isso que transforma passar creme em ritual. E pele responde a constância, não a intensidade.</p>" } },
-        "q3": { "type": "faq", "settings": { "question": "Qual a diferença entre o Popo Glow e um hidratante corporal comum?", "answer": "<p>Hidratante corporal comum é feito para servir ao corpo inteiro. E um produto que serve para tudo não foi pensado para nada especificamente.</p><p>O Popo Glow foi formulado para uma região só: a que fica comprimida oito horas por dia, que menos se movimenta e que quase nunca recebe massagem. É por isso que ele tem sensação de aquecimento, espátula e um gesto próprio — um hidratante comum não tem nada disso porque não precisa ter.</p>" } },
-        "q4": { "type": "faq", "settings": { "question": "É normal a pele ficar vermelha ou arder?", "answer": "<p>Calor e leve vermelhidão por alguns minutos são esperados e passam sozinhos. Ardência intensa não é normal: lave a região com água e suspenda o uso.</p><p>Faça o teste de sensibilidade antes da primeira aplicação — uma pequena quantidade no antebraço, 24 horas de espera.</p>" } },
-        "q5": { "type": "faq", "settings": { "question": "Quantas vezes por dia posso usar?", "answer": "<p>Uma ou duas vezes ao dia. Os dois melhores momentos são antes do treino e depois do banho, porque são horários que já existem na sua rotina — e ritual sem horário não gruda.</p>" } },
-        "q6": { "type": "faq", "settings": { "question": "Preciso massagear mesmo ou posso só passar?", "answer": "<p>O ideal é massagear. Hidratante passado com a mão em três segundos fica na superfície, e é justamente por isso que a maioria das pessoas acha que creme corporal não funciona.</p><p>Retire com a espátula, espalhe com as mãos e massageie em movimentos circulares até absorver. Leva cerca de um minuto por região.</p>" } },
-        "q7": { "type": "faq", "settings": { "question": "Posso usar em outras partes do corpo?", "answer": "<p>Pode. É um creme de massagem corporal e funciona em coxas, abdômen e braços. Ele foi pensado para os glúteos porque essa é a região mais esquecida de todas — mas o cuidado vale para todo o corpo abaixo do queixo.</p>" } },
-        "q8": { "type": "faq", "settings": { "question": "Posso usar grávida ou amamentando?", "answer": "<p>Não. O Popo Glow não é recomendado para gestantes e lactantes. Se você está grávida ou amamentando e quer manter uma rotina de cuidado corporal, converse com o profissional que acompanha a sua gestação sobre qual produto usar.</p>" } },
-        "q9": { "type": "faq", "settings": { "question": "O produto tem registro na ANVISA?", "answer": "<p>Sim. O Popo Glow é notificado na ANVISA sob o número 25.351.098501/2026-14, o que significa que a fórmula e o rótulo foram submetidos ao órgão antes de o produto chegar até você.</p>" } },
-        "q10": { "type": "faq", "settings": { "question": "Já tentei creme para bumbum antes e não funcionou. Por que agora seria diferente?", "answer": "<p>Provavelmente porque você passou, não massageou — e porque parou na segunda semana, que é onde quase toda rotina morre. O Popo Glow foi construído em cima desses dois problemas: o calor existe para você lembrar de repetir, e a massagem existe porque é ela que trabalha a região. Não é a fórmula que muda o jogo, é o ritual.</p>" } }
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "Em quanto tempo eu sinto diferença?",
+            "answer": "<p>A sensação de aquecimento você sente já na primeira aplicação — é imediata. Já o aspecto da pele responde a constância, não a intensidade: por isso o ritual do Popo Glow é de 21 dias, com aplicação diária.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "O que o Popo Glow faz na pele?",
+            "answer": "<p>Três coisas, e elas trabalham juntas.</p><p><strong>Auxilia na sustentação da pele.</strong> A região ganha sensação de firmeza e efeito tensor imediato — a pele fica com aspecto mais firme logo após a aplicação.</p><p><strong>Auxilia na uniformização da textura.</strong> A superfície fica com aspecto mais liso e regular, inclusive onde existe aspecto de casca de laranja.</p><p><strong>Fórmula termogênica corporal.</strong> É ela que cria a sensação de aquecimento. O calor faz você sentir exatamente onde está aplicando — e é isso que transforma passar creme em ritual. E pele responde a constância, não a intensidade.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "Qual a diferença entre o Popo Glow e um hidratante corporal comum?",
+            "answer": "<p>Hidratante corporal comum é feito para servir ao corpo inteiro. E um produto que serve para tudo não foi pensado para nada especificamente.</p><p>O Popo Glow foi formulado para uma região só: a que fica comprimida oito horas por dia, que menos se movimenta e que quase nunca recebe massagem. É por isso que ele tem sensação de aquecimento, espátula e um gesto próprio — um hidratante comum não tem nada disso porque não precisa ter.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "É normal a pele ficar vermelha ou arder?",
+            "answer": "<p>Calor e leve vermelhidão por alguns minutos são esperados e passam sozinhos. Ardência intensa não é normal: lave a região com água e suspenda o uso.</p><p>Faça o teste de sensibilidade antes da primeira aplicação — uma pequena quantidade no antebraço, 24 horas de espera.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "Quantas vezes por dia posso usar?",
+            "answer": "<p>Uma ou duas vezes ao dia. Os dois melhores momentos são antes do treino e depois do banho, porque são horários que já existem na sua rotina — e ritual sem horário não gruda.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "question": "Preciso massagear mesmo ou posso só passar?",
+            "answer": "<p>O ideal é massagear. Hidratante passado com a mão em três segundos fica na superfície, e é justamente por isso que a maioria das pessoas acha que creme corporal não funciona.</p><p>Retire com a espátula, espalhe com as mãos e massageie em movimentos circulares até absorver. Leva cerca de um minuto por região.</p>"
+          }
+        },
+        "q7": {
+          "type": "faq",
+          "settings": {
+            "question": "Posso usar em outras partes do corpo?",
+            "answer": "<p>Pode. É um creme de massagem corporal e funciona em coxas, abdômen e braços. Ele foi pensado para os glúteos porque essa é a região mais esquecida de todas — mas o cuidado vale para todo o corpo abaixo do queixo.</p>"
+          }
+        },
+        "q8": {
+          "type": "faq",
+          "settings": {
+            "question": "Posso usar grávida ou amamentando?",
+            "answer": "<p>Não. O Popo Glow não é recomendado para gestantes e lactantes. Se você está grávida ou amamentando e quer manter uma rotina de cuidado corporal, converse com o profissional que acompanha a sua gestação sobre qual produto usar.</p>"
+          }
+        },
+        "q9": {
+          "type": "faq",
+          "settings": {
+            "question": "O produto tem registro na ANVISA?",
+            "answer": "<p>Sim. O Popo Glow é notificado na ANVISA sob o número 25.351.098501/2026-14, o que significa que a fórmula e o rótulo foram submetidos ao órgão antes de o produto chegar até você.</p>"
+          }
+        },
+        "q10": {
+          "type": "faq",
+          "settings": {
+            "question": "Já tentei creme para bumbum antes e não funcionou. Por que agora seria diferente?",
+            "answer": "<p>Provavelmente porque você passou, não massageou — e porque parou na segunda semana, que é onde quase toda rotina morre. O Popo Glow foi construído em cima desses dois problemas: o calor existe para você lembrar de repetir, e a massagem existe porque é ela que trabalha a região. Não é a fórmula que muda o jogo, é o ritual.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10"
+      ],
       "settings": {
         "eyebrow": "Dúvidas",
         "heading_line1": "Perguntas",
@@ -189,5 +491,16 @@
       }
     }
   },
-  "order": ["hero", "regioes", "marquee", "produtos", "ritual", "depoimentos", "faciallinha", "beneficios", "faq", "newsletter"]
+  "order": [
+    "hero",
+    "regioes",
+    "marquee",
+    "produtos",
+    "ritual",
+    "depoimentos",
+    "faciallinha",
+    "beneficios",
+    "faq",
+    "newsletter"
+  ]
 }
