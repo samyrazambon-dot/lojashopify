@@ -1,7 +1,8 @@
 {%- comment -%}
   SAFA — hero customizado: fundo rosa sólido, heading em 3 linhas alternando
   roxo-escuro/branco-itálico, badges decorativos girando (SVG textPath),
-  mídia à direita (foto opcional, com fallback em bloco de cor).
+  mídia à direita (foto opcional, com fallback em bloco de cor, ou card
+  claro com o frasco centralizado via media_style = 'card').
 {%- endcomment -%}
 <section class="safa-hero" data-section-id="{{ section.id }}">
   <div class="safa-hero__decor safa-hero__decor--left">
@@ -62,7 +63,7 @@
     </div>
 
     <div class="safa-hero__media">
-      <div class="safa-hero__media-frame">
+      <div class="safa-hero__media-frame {% if section.settings.media_style == 'card' %}safa-hero__media-frame--card{% endif %}">
         {%- if section.settings.image != blank -%}
           {{
             section.settings.image
@@ -191,6 +192,18 @@
     aspect-ratio: 4 / 5;
   }
   .safa-hero__media-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .safa-hero__media-frame--card {
+    background: #fcfaf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+  .safa-hero__media-frame--card .safa-hero__media-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
   .safa-hero__media-placeholder {
     width: 100%;
     height: 100%;
@@ -260,9 +273,19 @@
     { "type": "url", "id": "button_link", "label": "Botão 1 — link" },
     { "type": "text", "id": "button_label_2", "default": "Conhecer o ritual", "label": "Botão 2 — texto" },
     { "type": "url", "id": "button_link_2", "label": "Botão 2 — link" },
-    { "type": "text", "id": "stat_text", "default": "+15 mil clientes iluminadas", "label": "Texto de prova social" },
-    { "type": "text", "id": "rating_text", "default": "4.9 nas avaliações", "label": "Texto de avaliação" },
+    { "type": "text", "id": "stat_text", "label": "Texto de prova social (deixe vazio se não for verificado)" },
+    { "type": "text", "id": "rating_text", "label": "Texto de avaliação" },
     { "type": "image_picker", "id": "image", "label": "Imagem (opcional — sem imagem usa bloco de cor)" },
+    {
+      "type": "select",
+      "id": "media_style",
+      "label": "Estilo da mídia",
+      "options": [
+        { "value": "cover", "label": "Foto de fundo (cover)" },
+        { "value": "card", "label": "Card claro — produto centralizado" }
+      ],
+      "default": "cover"
+    },
     { "type": "text", "id": "corner_badge", "default": "Vegano", "label": "Selo sobre a imagem" },
     { "type": "text", "id": "card_label", "default": "Rotina de 3 passos", "label": "Card — rótulo" },
     { "type": "text", "id": "card_title", "default": "Resultado em 14 dias", "label": "Card — título" }
