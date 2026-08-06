@@ -1,6 +1,6 @@
 {%- comment -%}
   SAFA — Bloco de benefícios do Popo Glow: produto ao centro, 6 benefícios em
-  duas colunas, caixa de aviso, selos e CTA.
+  duas colunas (um card por cor da paleta), caixa de aviso, selos e CTA.
 {%- endcomment -%}
 <div class="safa-benefits page-width" data-section-id="{{ section.id }}">
   <div class="safa-benefits__header">
@@ -24,7 +24,7 @@
   <div class="safa-benefits__grid">
     {%- for block in section.blocks -%}
       {%- if block.type == 'benefit' -%}
-        <div class="safa-benefits__card{% if block.settings.highlight %} safa-benefits__card--highlight{% endif %}" {{ block.shopify_attributes }}>
+        <div class="safa-benefits__card" {{ block.shopify_attributes }}>
           <strong class="safa-benefits__card-title">{{ block.settings.title | escape }}</strong>
           <p class="safa-benefits__card-text">{{ block.settings.text | escape }}</p>
         </div>
@@ -91,25 +91,36 @@
     margin: 0 auto 40px;
   }
   .safa-benefits__card {
-    background: #fdf6fa;
-    border: 1px solid #f4dcee;
     border-radius: 18px;
     padding: 22px 24px;
   }
-  .safa-benefits__card--highlight {
-    background: #2a0a2e;
-    border-color: #2a0a2e;
+  .safa-benefits__card-title { display: block; font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+  .safa-benefits__card-text { font-size: 14px; line-height: 1.55; margin: 0; }
+
+  /* Card 1 · Sensação de aquecimento */
+  .safa-benefits__card:nth-child(1) { background: #ff784b; }
+  /* Card 2 · Hidratação profunda */
+  .safa-benefits__card:nth-child(2) { background: #be9bff; }
+  /* Card 3 · Aparência de estrias atenuada */
+  .safa-benefits__card:nth-child(3) { background: #fcfaf8; }
+  /* Card 4 · Aspecto mais firme */
+  .safa-benefits__card:nth-child(4) { background: #ff73d7; }
+  /* Card 5 · Textura mais uniforme */
+  .safa-benefits__card:nth-child(5) { background: #cdff87; }
+  .safa-benefits__card:nth-child(-n+5) .safa-benefits__card-title,
+  .safa-benefits__card:nth-child(-n+5) .safa-benefits__card-text {
+    color: #460a46;
   }
-  .safa-benefits__card--highlight .safa-benefits__card-title { color: #ff73d7; }
-  .safa-benefits__card--highlight .safa-benefits__card-text { color: #d8c7d4; }
-  .safa-benefits__card-title { display: block; color: #2a0a2e; font-size: 16px; font-weight: 800; margin-bottom: 8px; }
-  .safa-benefits__card-text { color: #6b5866; font-size: 14px; line-height: 1.55; margin: 0; }
+  /* Card 6 · Feito para uma região só */
+  .safa-benefits__card:nth-child(6) { background: #460a46; }
+  .safa-benefits__card:nth-child(6) .safa-benefits__card-title { color: #ff73d7; }
+  .safa-benefits__card:nth-child(6) .safa-benefits__card-text { color: #ffffff; }
 
   .safa-benefits__notice {
     max-width: 640px;
     margin: 0 auto 40px;
-    background: #f5f0f7;
-    border: 1px solid #e5d6ea;
+    background: #fcfaf8;
+    border: 1px solid #ece4e7;
     border-radius: 16px;
     padding: 20px 24px;
   }
@@ -196,7 +207,7 @@
       "blocks": [
         { "type": "benefit", "settings": { "title": "Sensação de aquecimento", "text": "Você sente o calor logo na aplicação. É ele que marca a região e transforma passar creme em ritual." } },
         { "type": "benefit", "settings": { "title": "Hidratação profunda", "text": "Hidrata e melhora a maciez e a elasticidade da pele, com textura que absorve sem deixar a região pegajosa." } },
-        { "type": "benefit", "settings": { "title": "Aparente de estrias atenuada", "text": "Com o uso contínuo, atenua a aparência de estrias e deixa a pele com aspecto mais uniforme." } },
+        { "type": "benefit", "settings": { "title": "Aparência de estrias atenuada", "text": "Com o uso contínuo, atenua a aparência de estrias e deixa a pele com aspecto mais uniforme." } },
         { "type": "benefit", "settings": { "title": "Aspecto mais firme", "text": "Proporciona sensação de firmeza e efeito tensor imediato, com aspecto mais firme após a aplicação." } },
         { "type": "benefit", "settings": { "title": "Textura mais uniforme", "text": "Auxilia na melhora da aparência da pele com aspecto de casca de laranja, deixando a superfície visualmente mais lisa." } },
         { "type": "benefit", "settings": { "title": "Feito para uma região só", "text": "Não é hidratante corporal genérico. Foi formulado para a região que passa oito horas por dia comprimida.", "highlight": true } },
