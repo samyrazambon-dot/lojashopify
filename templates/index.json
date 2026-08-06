@@ -180,12 +180,13 @@
     "newsletter": {
       "type": "safa-newsletter",
       "settings": {
-        "eyebrow": "Clube do brilho",
-        "heading_line1": "10% off na sua",
+        "eyebrow": "Clube Safa",
+        "heading_line1": "Frete grátis na",
         "heading_line2": "primeira compra.",
-        "text": "Entre pro Clube Safa e receba lançamentos, dicas de ritual e mimos exclusivos.",
+        "text": "Sem valor mínimo. Entre para o Clube Safa e receba o desafio de 21 dias — o método completo do ritual, direto no seu e-mail.",
         "email_placeholder": "Seu melhor e-mail",
-        "button_label": "Quero brilhar"
+        "button_label": "Quero brilhar",
+        "legal_text": "<p>Ao entrar você aceita receber e-mails da Safa. Cancele quando quiser. Consulte nossa <a href=\"/policies/privacy-policy\">Política de Privacidade</a>.</p>"
       }
     }
   },
