@@ -1,5 +1,5 @@
 {%- comment -%}
-  NAV / HEADER — cabeçalho do site (marca Safa: fundo branco, logo rosa, menu uppercase espaçado)
+  NAV / HEADER — cabeçalho do site (marca Safa: fundo branco, logo oficial, menu uppercase espaçado)
 {%- endcomment -%}
 <header class="header page-width" data-section-id="{{ section.id }}">
   <div class="header__inner">
@@ -14,23 +14,7 @@
     </button>
 
     <a href="{{ routes.root_url }}" class="header__logo-link">
-      {%- if settings.logo != blank -%}
-        {%- assign logo_alt = shop.name | escape -%}
-        {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-        {{
-          settings.logo
-          | image_url: width: 600
-          | image_tag:
-            class: 'header__logo-image',
-            widths: '150, 300, 450, 600',
-            width: settings.logo_width,
-            height: logo_height,
-            alt: logo_alt,
-            sizes: '(max-width: 1000px) 40vw, 200px'
-        }}
-      {%- else -%}
-        <span class="header__logo-text">Safa<span class="header__logo-star">✦</span></span>
-      {%- endif -%}
+      {{ 'safa-logo-pink.png' | asset_url | image_tag: alt: 'Safa', class: 'header__logo-image', width: 120, height: 37, loading: 'eager' }}
     </a>
 
     <nav class="header__nav" role="navigation" aria-label="{{ 'sections.header.menu' | t }}">
@@ -132,15 +116,6 @@
     padding: 22px 0;
   }
   .header__logo-image { display: block; height: auto; }
-  .header__logo-text {
-    font-family: var(--font-heading-family);
-    font-size: 24px;
-    font-weight: 900;
-    color: #ff73d7;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-  }
-  .header__logo-star { color: #ff73d7; font-size: 0.7em; margin-left: 3px; }
   .header__nav { flex: 1; }
   .header__menu {
     display: flex;
